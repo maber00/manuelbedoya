@@ -23,6 +23,7 @@ pnpm-debug.log*
 .idea/
 *.swp
 *.swo
+git remote set-url origin git@github.com:maber00/abrilmaber.git
 
 # Sistema operativo
 .DS_Store
