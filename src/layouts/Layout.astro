@@ -1,0 +1,79 @@
+---
+import { SEO } from 'astro-seo';
+import Footer from '@components/footer.astro';
+import Navbar from '@components/navbar/navbar.astro';
+
+// IMPORTANTE: Importación de estilos globales
+import '../styles/global.css';
+
+// Importación de fuentes
+import '@fontsource/poppins/300.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/noto-serif/400.css';
+import '@fontsource/noto-serif/700.css';
+
+// Importación de la imagen del logo (ruta corregida para Vercel)
+import { Image } from 'astro:assets';
+import logoImage from '../assets/logo-render.webp';
+
+export interface Props { 
+  title: string;
+}
+
+// Configuración para SEO y Open Graph
+const { title } = Astro.props;
+const pageTitle = title ? `${title} | Render Medios Audiovisuales` : 'Render Medios Audiovisuales';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://tudominio.vercel.app').toString();
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="/favicon.svg">
+    <meta name="generator" content={Astro.generator} />
+    
+    <SEO
+      title={pageTitle}
+      description="PRODUCCIÓN AUDIOVISUAL - Productora de comerciales, video marketing, tomas aéreas y fotografía publicitaria."
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@rendermedios",
+        site: "@rendermedios",
+        card: "summary_large_image"
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: `Render Medios Audiovisuales`,
+          image: new URL('/og-image.jpg', Astro.site || 'https://tudominio.vercel.app').toString()
+        },
+        image: {
+          alt: "Render Medios Audiovisuales",
+          width: 1200,
+          height: 630
+        },
+      }}
+    />
+    
+    <!-- Precargar fuentes críticas -->
+    <link
+      rel="preload"
+      href="/fonts/poppins-v20-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
+</html>

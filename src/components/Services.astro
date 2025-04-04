@@ -1,0 +1,235 @@
+---
+// Importa el componente Image
+import { Image } from 'astro:assets';
+
+// Importa tus imágenes
+import videoImage from '../assets/portafolio/Video-400x400.jpg';
+import comercialesImage from '../assets/portafolio/Comerciales-400x400.jpg';
+import fotografiaImage from '../assets/portafolio/Fotografia-400x400.jpg';
+---
+
+<section class="py-20 bg-white text-black">
+  <div class="container mx-auto px-4">
+    <!-- Encabezado de sección -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-serif sm:text-7xl font-bold mb-6">Nuestros Servicios</h2>
+      <p class="text-lg sm:text-xl max-w-3xl mx-auto opacity-80">
+        Combinamos creatividad y tecnología de inteligencia artificial para transformar tu comunicación audiovisual.
+      </p>
+      
+      <div class="mt-4">
+        <a href="/servicios" class="inline-block px-8 py-3 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300">
+          Ver Todos los Servicios
+        </a>
+      </div>
+    </div>
+    
+    <!-- Servicios -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Servicio 1: Producción de Video -->
+      <div class="service-block transition duration-300 ease-in-out hover:transform hover:scale-105">
+        <div class="relative overflow-hidden rounded-lg mb-6 group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <Image 
+              src={videoImage} 
+              alt="Producción de Video"
+              class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-90"></div>
+          </div>
+          
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="text-xs mb-1 text-white">RENDER</div>
+            <h3 class="text-3xl text-white tracking-tight font-bold">Producción de Video</h3>
+          </div>
+        </div>
+        
+        <!-- Subservicios listados directamente -->
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Corporativo o Institucional</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Lanzamiento de producto</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Video Marketing</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Video Animado / Motion Graphics</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Tomas Aéreas</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Capacitación</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Detrás de Cámaras</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Himnos / Videoclip</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Video 360</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Responsabilidad Social</strong></span>
+          </li>
+        </ul>
+        
+        <h4 class="text-xl font-bold mb-3 tracking-tight text-[#B1293E]">Servicios con IA</h4>
+        <ul class="space-y-2">
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Avatar Hiperrealista</strong> - Presentadores virtuales</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Tomas generadas por IA</strong> - Escenas virtuales</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Animaciones IA</strong> - Efectos y movimiento</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Servicio 2: Comerciales -->
+      <div class="service-block transition duration-300 ease-in-out hover:transform hover:scale-105">
+        <div class="relative overflow-hidden rounded-lg mb-6 group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <Image 
+              src={comercialesImage} 
+              alt="Comerciales"
+              class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-90"></div>
+          </div>
+          
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="text-xs mb-1 text-white">RENDER</div>
+            <h3 class="text-3xl text-white tracking-tight font-bold">Producción Comerciales</h3>
+          </div>
+        </div>
+        
+        <!-- Subservicios listados directamente -->
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Comerciales para TV</strong> y plataformas digitales</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Videomatic</strong> - Piloto de comercial para testeo</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Postproducción de Comerciales</strong></span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Rotoscopia</strong></span>
+          </li>
+        </ul>
+        
+        <h4 class="text-xl font-bold mb-3 tracking-tight text-[#B1293E]">Servicios con IA</h4>
+        <ul class="space-y-2">
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Storyboard con IA</strong> - Visualiza tu comercial</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Imágenes generadas por IA</strong> - Elementos visuales</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Animación avanzada</strong> - Técnicas modernas</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Servicio 3: Fotografía -->
+      <div class="service-block transition duration-300 ease-in-out hover:transform hover:scale-105">
+        <div class="relative overflow-hidden rounded-lg mb-6 group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <Image 
+              src={fotografiaImage} 
+              alt="Fotografía Publicitaria"
+              class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-90"></div>
+          </div>
+          
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="text-xs mb-1 text-white">RENDER</div>
+            <h3 class="text-3xl text-white font-bold tracking-tight">Fotografía Publicitaria</h3>
+          </div>
+        </div>
+        
+        <!-- Subservicios listados directamente -->
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start tracking-tight hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Corporativa</strong> - Retratos e institucional</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Producto</strong> - Destaca tus productos</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Inmobiliaria</strong> - Resalta espacios</span>
+          </li>
+        </ul>
+        
+        <h4 class="text-xl font-bold mb-3 tracking-tight text-[#B1293E]">Servicios con IA</h4>
+        <ul class="space-y-2">
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Imágenes para redes sociales</strong> - Contenido optimizado</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Edición avanzada</strong> - Retoque profesional</span>
+          </li>
+          <li class="flex items-start hover:text-[#B1293E] transition-colors duration-200">
+            <span class="text-[#B1293E] mr-2">•</span>
+            <span><strong>Fotomontajes</strong> - Composiciones creativas</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos adicionales para animaciones */
+  .service-block {
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .service-block:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Para navegadores que soportan animaciones más avanzadas */
+  @media (prefers-reduced-motion: no-preference) {
+    .service-block:hover .aspect-\[4\/3\] img {
+      transform: scale(1.1);
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+</style>

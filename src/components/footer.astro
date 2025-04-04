@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-black text-white py-6">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap items-center justify-between">
+      <!-- Contenedor para logo y botón -->
+      
+      
+      <!-- Copyright centrado debajo -->
+      <div class="w-full text-center">
+        <p class="text-sm text-white">
+          Copyright © {currentYear} Render Medios Audiovisuales. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,126 @@
+<div class="min-h-screen bg-white relative flex flex-col">
+    <!-- Grid Layout -->
+    <div class="flex-grow">
+        <!-- CONTACT -->
+        <div class="p-4 md:p-[100px]">
+            <h2 class="text-4xl md:text-7xl md:text-[80px] text-black font-regular font-serif leading-none">Contactános</h2>
+            <div class="w-full md:w-800 h-0.5 bg-[#B1293E] mb-2" id="underline"></div>
+            
+            <form class="p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            placeholder="Nombre Completo*"
+                            class="w-full bg-transparent border-b border-black py-2 focus:outline-none focus:border-red-600 text-black"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            placeholder="Email*"
+                            class="w-full bg-transparent border-b border-black py-2 focus:outline-none focus:border-red-600 text-black"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            type="tel"
+                            placeholder="Teléfono*"
+                            class="w-full bg-transparent border-b border-black py-2 focus:outline-none focus:border-red-600 text-black"
+                        />
+                    </div>
+                    <div class="form-group md:col-span-2">
+                        <textarea
+                            placeholder="Mensaje"
+                            rows="4"
+                            class="w-full bg-transparent border-b border-black py-2 focus:outline-none focus:border-red-600 text-black"
+                        ></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+ 
+    <!-- Footer Links -->
+    <div class="w-full mt-auto pl-9 pr-9">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-600 border-t border-black">
+            <!-- Dirección -->
+            <div class="p-4 md:p-6 transition-colors">
+                <h3 class="font-light text-sm uppercase mb-2 text-black">DIRECCIÓN:</h3>
+                <p class="text-sm transition-colors text-black">Calle 98ª # 51-40 Bogotá – Colombia</p>
+            </div>
+            
+            <!-- Teléfono -->
+            <div class="p-4 md:p-6 transition-colors">
+                <h3 class="font-light text-sm uppercase mb-2 text-black">TELÉFONO:</h3>
+                <p class="text-sm transition-colors text-black">+57 311 2572831</p>
+            </div>
+            
+            <!-- Email -->
+            <div class="p-4 md:p-6 transition-colors">
+                <h3 class="font-light text-sm uppercase mb-2 text-black">EMAIL:</h3>
+                <p class="text-sm transition-colors text-black">produccion@render.co</p>
+            </div>
+            
+            <!-- Horario -->
+            <div class="p-4 md:p-6 transition-colors">
+                <h3 class="font-light text-sm uppercase mb-2 text-black">HORARIO:</h3>
+                <p class="text-sm transition-colors text-black">Lun-Vie 7am – 6pm</p>
+            </div>
+        </div>
+        
+        <!-- RENDER logo -->
+        <div class="text-center border-t border-black py-4 md:py-6">
+            <h2 class="text-xl md:text-2xl font-bold text-black">RENDER</h2>
+        </div>
+    </div>
+</div>
+
+<style>
+    #underline {
+        transform-origin: left;
+    }
+    
+    input, textarea {
+        font-weight: 300;
+        color: black !important; /* Aseguramos que el texto del input sea negro */
+    }
+    
+    input::placeholder, textarea::placeholder {
+        color: #666 !important; /* Placeholder más oscuro para visibilidad */
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+        transition: all 0.3s ease;
+    }
+    
+    /* Aseguramos que los textos siempre sean negros */
+    h2, h3, p, span, input, textarea {
+        color: black;
+    }
+</style>
+
+<script>
+    // Animación del underline
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.fromTo('#underline',
+                {
+                    scaleX: 0
+                },
+                {
+                    scaleX: 1,
+                    duration: 1,
+                    delay: 0.5,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '#underline',
+                        start: 'top center',
+                        toggleActions: 'play none none reset'
+                    }
+                }
+            );
+        }
+    });
+</script>

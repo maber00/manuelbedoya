@@ -1,0 +1,56 @@
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables globales */
+:root {
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Noto Serif', serif;
+  --color-primary: #B1293E;
+  --color-secondary: #333333;
+}
+
+/* Estilos base */
+body {
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilidades específicas */
+.font-serif {
+  font-family: var(--font-secondary) !important;
+}
+
+h1.serif, h2.serif, h3.serif, h4.serif, h5.serif, h6.serif {
+  font-family: var(--font-secondary) !important;
+}
+
+/* Optimización de imágenes */
+img {
+  content-visibility: auto;
+}
+
+/* Animaciones y efectos */
+#underline {
+  transform-origin: left;
+}
+
+/* Componentes especializados */
+.carousel {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* Estilos específicos para elementos que se deberían procesar en producción */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

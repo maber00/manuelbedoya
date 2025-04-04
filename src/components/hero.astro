@@ -1,0 +1,311 @@
+---
+import Carrusel from "../components/BrandsCarousel.astro";
+---
+<div class="hero-container relative w-full h-screen overflow-hidden bg-black flex md:items-end items-end">
+  <!-- Video Background con overlay inicial negro -->
+  <div class="absolute inset-0 w-full h-full opacity-0 z-0" id="videoWrapper">
+    <div class="absolute inset-0 w-full h-full video-container overflow-hidden">
+        <iframe 
+            src="https://player.vimeo.com/video/417275834?h=c1cd283147&background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            id="backgroundVideo"
+            class="transform-gpu"
+        ></iframe>
+    </div>
+  </div>
+
+  <!-- Overlay negro que se desvanece -->
+  <div class="absolute inset-0 bg-black transition-opacity duration-1000 z-10" id="initialOverlay"></div>
+
+  <!-- Overlay negro permanente para el texto -->
+  <div class="absolute inset-0 bg-black md:bg-opacity-40 bg-opacity-60 opacity-0 z-20" id="textOverlay"></div>
+  
+  <!-- Contenido - Alineado a la izquierda y centrado verticalmente en móvil, abajo en desktop -->
+  <div class="relative z-30 w-full flex flex-col md:pb-0 ">
+    <!-- Contenido de texto con margen izquierdo -->
+    <div class="pl-6 sm:pl-12 md:pl-16 lg:pl-24">
+      <div class="flex flex-col text-white max-w-4xl">
+        
+        <!-- RENDER con animación de loop -->
+        <h1 id="render-title" class="text-5xl font-serif sm:text-6xl font-black leading-none tracking-tight text-left text-white transform-gpu origin-left">
+          RENDER
+        </h1>
+        
+        <!-- Eslogan principal en dos líneas con animación de loop -->
+        <div>
+          <p id="connecting-text" class="text-2xl  font-serif sm:text-5xl font-black text-left leading-tight text-gray-400 transform-gpu origin-left">
+            CONECTANDO PERSONAS,
+          </p>
+          <p id="brands-text" class="text-2xl font-serif sm:text-5xl font-black text-left leading-tight text-gray-400 transform-gpu origin-left">
+            IMPULSANDO MARCAS
+          </p>
+        </div>
+        
+        <!-- Texto de eslogan secundario -->
+        <p class="text-base sm:text-xl font-normal mb-6 sm:mb-8 mr-14 text-left will-change-opacity opacity-0 desc-text text-white max-w-2xl">
+          Motivamos a las empresas a contar historias que inspiran con el poder de la IA
+        </p>
+        
+        <!-- Botón CTA -->
+        <div class="mb-10 opacity-0 button-container">
+          <a 
+            href="/contacto"
+            class="inline-block px-6 py-3 text-base sm:text-lg font-medium rounded-full bg-white hover:bg-gray-200 text-black transition-all duration-300"
+          >
+            Transforma tu comunicación
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Carrusel de marcas sin margen izquierdo -->
+    <div class="opacity-0 carousel-container w-full text-white">
+      <Carrusel />
+    </div>
+  </div>
+</div>
+
+<style>
+  @import 'https://player.vimeo.com/api/player.js';
+
+  .hero-container {
+    will-change: transform;
+  }
+
+  .desc-text,
+  .button-container,
+  .carousel-container {
+    transform: translateY(20px);
+    will-change: transform, opacity;
+    opacity: 0;
+  }
+
+  /* Estilos específicos para el carrusel */
+  .brands-carousel {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  /* Estilo inicial para el título RENDER */
+  #render-title {
+    transform-origin: left center;
+    transition: color 0.5s ease, transform 0.5s ease;
+  }
+
+  /* Estilo inicial para los textos del eslogan */
+  #connecting-text, #brands-text {
+    transform-origin: left center;
+    transition: color 0.5s ease, transform 0.5s ease;
+  }
+
+  /* Estilos para hacer que el video sea responsive similar a Runway */
+  .video-container {
+    overflow: hidden;
+  }
+  
+  /* Móviles */
+  @media (max-width: 767px) {
+    #backgroundVideo {
+      width: 200vw !important;
+      height: 2000vh !important;
+      transform: translate(-50%, -50%) scale(2.0) !important;
+      will-change: transform;
+    }
+  }
+  
+  /* iPads - ajuste específico */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    #backgroundVideo {
+      width: 200vw !important;
+      height: 200vh !important;
+      transform: translate(-50%, -50%) scale(1.8) !important;
+      will-change: transform;
+    }
+  }
+
+  /* iPad Pro - ajuste específico */
+  @media (min-width: 1025px) and (max-width: 1366px) {
+    #backgroundVideo {
+      width: 150vw !important;
+      height: 150vh !important;
+      transform: translate(-50%, -50%) scale(1.5) !important;
+      will-change: transform;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Referencia a los elementos que animaremos en loop
+  const renderTitle = document.getElementById('render-title');
+  const connectingText = document.getElementById('connecting-text');
+  const brandsText = document.getElementById('brands-text');
+  const backgroundVideo = document.getElementById('backgroundVideo');
+
+  // Función para ajustar el video según el dispositivo
+  function adjustVideoForDevice() {
+    const width = window.innerWidth;
+
+    if (width <= 767) {
+      // Móviles
+      gsap.set(backgroundVideo, {
+        scale: 2.5,
+        y: "0%",
+        x: "0%"
+      });
+    } else if (width <= 1024) {
+      // iPad Air y tablets similares
+      gsap.set(backgroundVideo, {
+        scale: 1.8,
+        y: "0%",
+        x: "0%"
+      });
+    } else if (width <= 1366) {
+      // iPad Pro y tablets grandes
+      gsap.set(backgroundVideo, {
+        scale: 1.5,
+        y: "0%",
+        x: "0%"
+      });
+    } else {
+      // Escritorio
+      gsap.set(backgroundVideo, {
+        scale: 1,
+        y: "0%",
+        x: "0%"
+      });
+    }
+  }
+
+  // Ejecutar ajuste inmediatamente y cuando cambie el tamaño de ventana
+  adjustVideoForDevice();
+  window.addEventListener('resize', adjustVideoForDevice);
+  window.addEventListener('orientationchange', adjustVideoForDevice);
+
+  // Primero aparecen todos los elementos
+  const initialTl = gsap.timeline();
+  initialTl
+    .to(renderTitle, {
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power4.out'
+    })
+    .to(connectingText, {
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.4')
+    .to(brandsText, {
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.4')
+    .to('.desc-text', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.4')
+    .to('.button-container', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.4')
+    .to('.carousel-container', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.4');
+
+  // Esperar a que termine la animación inicial antes de empezar el loop
+  initialTl.then(() => {
+    // Timeline para las animaciones de loop
+    const loopTl = gsap.timeline({
+      repeat: -1, // Hace que se repita indefinidamente
+      repeatDelay: 0.5 // Pausa de 0.5 segundos entre cada ciclo
+    });
+
+    // Primer estado: RENDER destacado
+    loopTl
+      // Primer estado: RENDER destacado
+      .to(renderTitle, {
+        scale: 1.15,
+        color: '#ffffff',
+        duration: 0.5,
+        ease: 'power4.out',
+        transformOrigin: 'left center'
+      })
+      .to([connectingText, brandsText], {
+        scale: 1,
+        color: '#9ca3af', // text-gray-400
+        duration: 0.5,
+        ease: 'power4.out',
+        transformOrigin: 'left center'
+      }, '<') // Ejecutar al mismo tiempo que la animación anterior
+      .to({}, { duration: 2.5 }) // Pausa de 2.5 segundos
+
+      // Segundo estado: CONECTANDO PERSONAS destacado
+      .to(connectingText, {
+        scale: 1.15,
+        color: '#ffffff',
+        duration: 0.5,
+        ease: 'power4.out',
+        transformOrigin: 'left center'
+      })
+      .to([renderTitle, brandsText], {
+        scale: 1,
+        color: '#9ca3af', // text-gray-400
+        duration: 0.5,
+        ease: 'power4.out',
+        transformOrigin: 'left center'
+      }, '<')
+      .to({}, { duration: 2.5 })
+
+      // Tercer estado: IMPULSANDO MARCAS destacado
+      .to(brandsText, {
+        scale: 1.15,
+        color: '#ffffff',
+        duration: 0.5,
+        ease: 'power4.out',
+        transformOrigin: 'left center'
+      })
+      .to([renderTitle, connectingText], {
+        scale: 1,
+        color: '#9ca3af', // text-gray-400
+        duration: 0.5,
+        ease: 'power4.out',
+        transformOrigin: 'left center'
+      }, '<')
+      .to({}, { duration: 2.5 });
+  });
+
+  // Timeline para el video y overlays
+  const videoTl = gsap.timeline();
+  videoTl
+    .to('#videoWrapper', {
+      opacity: 1,
+      duration: 1.5,
+      ease: 'power4.inOut'
+    })
+    .to('#textOverlay', {
+      opacity: 1,
+      duration: 1,
+      ease: 'power4.inOut'
+    }, '-=1')
+    .to('#initialOverlay', {
+      opacity: 0,
+      duration: 1,
+      ease: 'power4.inOut'
+    }, '-=1');
+</script>

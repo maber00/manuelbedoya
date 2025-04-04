@@ -1,0 +1,120 @@
+---
+import Container from "../container.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import logoWhite from "../../assets/Logo/logo-render-1.png";
+import logoDark from "../../assets/Logo/logo-render.png";
+
+const menuitems = [
+  { title: "INICIO", path: "/" },
+  { title: "NOSOTROS", path: "/nosotros" },
+  { title: "SERVICIOS", path: "/servicios" },
+  { title: "CLIENTES", path: "/clientes" },
+  { title: "PORTAFOLIO", path: "/portafolio" },
+  { title: "CONTACTO", path: "/contacto" },
+];
+---
+
+<Container>
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent transform translate-y-0">
+    <div class="flex flex-col lg:flex-row justify-between items-center py-3 px-4 max-w-7xl mx-auto">
+      <div class="flex w-full lg:w-auto items-center justify-between mb-4 lg:mb-0">
+        <a href="/" class="text-lg flex items-center">
+          <img src={logoWhite.src} alt="Logo" id="logo-white" class="h-6 mr-2" />
+          <img src={logoDark.src} alt="Logo" id="logo-dark" class="h-6 mr-2 hidden" />
+        </a>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-4 h-4 text-gray-800 menu-icon" />
+        </div>
+      </div>
+      <Astronav>
+        <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+          <ul class="flex flex-col lg:flex-row lg:gap-3">
+            {menuitems.map((item) => (
+              <li>
+                <a
+                  href={item.path}
+                  class="flex px-3 py-2 items-center text-white hover:text-gray-300 transition-colors nav-link"
+                >
+                  <span>{item.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </MenuItems>
+      </Astronav>
+    </div>
+  </header>
+</Container>
+
+<style>
+  /* Estilos para el ícono del menú */
+  :global(.menu-icon) {
+    color: white;
+    transition: color 0.3s ease;
+  }
+
+  :global(.header-scrolled .menu-icon) {
+    color: black;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('#header') as HTMLElement;
+    const logoWhite = document.querySelector('#logo-white') as HTMLElement;
+    const logoDark = document.querySelector('#logo-dark') as HTMLElement;
+    const navLinks = document.querySelectorAll('.nav-link');
+    const menuIcon = document.querySelector('.menu-icon') as SVGElement;
+    let lastScroll = 0;
+
+    function handleScroll() {
+      if (!header) return;
+      
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll <= 0) {
+        // At the top
+        header.classList.remove('bg-white', 'shadow-md', '-translate-y-full', 'header-scrolled');
+        header.classList.add('bg-transparent', 'translate-y-0');
+        if (logoWhite) logoWhite.classList.remove('hidden');
+        if (logoDark) logoDark.classList.add('hidden');
+        if (menuIcon) menuIcon.classList.add('text-white');
+        if (menuIcon) menuIcon.classList.remove('text-black');
+        navLinks.forEach(link => {
+          link.classList.add('text-white', 'hover:text-gray-300');
+          link.classList.remove('text-gray-600', 'hover:text-gray-900');
+        });
+      } else if (currentScroll > lastScroll) {
+        // Scrolling down
+        header.classList.add('-translate-y-full');
+        header.classList.remove('translate-y-0');
+      } else {
+        // Scrolling up
+        header.classList.remove('-translate-y-full', 'bg-transparent');
+        header.classList.add('translate-y-0', 'bg-white', 'shadow-md', 'header-scrolled');
+        if (logoWhite) logoWhite.classList.add('hidden');
+        if (logoDark) logoDark.classList.remove('hidden');
+        if (menuIcon) menuIcon.classList.remove('text-white');
+        if (menuIcon) menuIcon.classList.add('text-black');
+        navLinks.forEach(link => {
+          link.classList.remove('text-white', 'hover:text-gray-300');
+          link.classList.add('text-gray-600', 'hover:text-gray-900');
+        });
+      }
+
+      lastScroll = currentScroll;
+    }
+
+    let scrollTimeout: number;
+    window.addEventListener('scroll', () => {
+      if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout);
+      }
+      scrollTimeout = window.requestAnimationFrame(function() {
+        handleScroll();
+      });
+    });
+    
+    handleScroll(); // Initial call
+  });
+</script>
