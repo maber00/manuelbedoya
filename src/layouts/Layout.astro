@@ -12,8 +12,15 @@ import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
+import "@fontsource/noto-serif/300.css";
 import '@fontsource/noto-serif/400.css';
 import '@fontsource/noto-serif/700.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/300.css';
+import "cal-sans"; 
+import "@fontsource/permanent-marker";
+ // Añadimos Roboto Regular 400
+ // Añadimos Roboto Regular 400
 
 // Importación de la imagen del logo (ruta corregida para Vercel)
 import { Image } from 'astro:assets';
@@ -66,6 +73,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://tudomini
     <link
       rel="preload"
       href="/fonts/poppins-v20-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/roboto-v30-latin-regular.woff2"
       as="font"
       type="font/woff2"
       crossorigin

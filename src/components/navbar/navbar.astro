@@ -4,12 +4,12 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import logoWhite from "../../assets/Logo/logo-render-1.png";
 import logoDark from "../../assets/Logo/logo-render.png";
 
+// Menú actualizado, con NOSOTROS y SERVICIOS apuntando a secciones internas
 const menuitems = [
   { title: "INICIO", path: "/" },
-  { title: "NOSOTROS", path: "/nosotros" },
-  { title: "SERVICIOS", path: "/servicios" },
-  { title: "CLIENTES", path: "/clientes" },
-  { title: "PORTAFOLIO", path: "/portafolio" },
+  { title: "NOSOTROS", path: "/#por-que-render" }, // Enlace a la sección interna
+  { title: "SERVICIOS", path: "/#servicios" }, // Enlace a la sección de servicios
+  { title: "PORTAFOLIO", path: "/#portafolio" },
   { title: "CONTACTO", path: "/contacto" },
 ];
 ---
@@ -54,7 +54,7 @@ const menuitems = [
   }
 
   :global(.header-scrolled .menu-icon) {
-    color: black;
+    color: white;
   }
 </style>
 
@@ -74,31 +74,31 @@ const menuitems = [
       
       if (currentScroll <= 0) {
         // At the top
-        header.classList.remove('bg-white', 'shadow-md', '-translate-y-full', 'header-scrolled');
+        header.classList.remove('bg-black', 'shadow-md', '-translate-y-full', 'header-scrolled');
         header.classList.add('bg-transparent', 'translate-y-0');
         if (logoWhite) logoWhite.classList.remove('hidden');
         if (logoDark) logoDark.classList.add('hidden');
         if (menuIcon) menuIcon.classList.add('text-white');
-        if (menuIcon) menuIcon.classList.remove('text-black');
+        if (menuIcon) menuIcon.classList.remove('text-white'); // Redundante pero mantenido por consistencia
         navLinks.forEach(link => {
-          link.classList.add('text-white', 'hover:text-gray-300');
-          link.classList.remove('text-gray-600', 'hover:text-gray-900');
+          link.classList.add('text-white', 'hover:text-green-500');
+          link.classList.remove('text-white', 'hover:text-gray-300'); // Redundante pero mantenido por consistencia
         });
       } else if (currentScroll > lastScroll) {
         // Scrolling down
         header.classList.add('-translate-y-full');
         header.classList.remove('translate-y-0');
       } else {
-        // Scrolling up
+        // Scrolling up - usando fondo negro
         header.classList.remove('-translate-y-full', 'bg-transparent');
-        header.classList.add('translate-y-0', 'bg-white', 'shadow-md', 'header-scrolled');
-        if (logoWhite) logoWhite.classList.add('hidden');
-        if (logoDark) logoDark.classList.remove('hidden');
-        if (menuIcon) menuIcon.classList.remove('text-white');
-        if (menuIcon) menuIcon.classList.add('text-black');
+        header.classList.add('translate-y-0', 'bg-black', 'shadow-md', 'header-scrolled');
+        if (logoWhite) logoWhite.classList.remove('hidden'); // Mantener logo blanco visible
+        if (logoDark) logoDark.classList.add('hidden'); // Mantener logo oscuro oculto
+        if (menuIcon) menuIcon.classList.add('text-white');
+        if (menuIcon) menuIcon.classList.remove('text-black');
         navLinks.forEach(link => {
-          link.classList.remove('text-white', 'hover:text-gray-300');
-          link.classList.add('text-gray-600', 'hover:text-gray-900');
+          link.classList.add('text-white', 'hover:text-gray-300');
+          link.classList.remove('text-gray-600', 'hover:text-gray-900');
         });
       }
 

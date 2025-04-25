@@ -1,4 +1,7 @@
 ---
+const { id } = Astro.props;
+
+
 import { Image } from 'astro:assets';
 
 // BDF Gallery
@@ -248,11 +251,11 @@ isGridItem: true
 ];
 const tags = ["Todo", "Comerciales", "Fotografía Corporativa", "Fotografía de Producto", "Fotografía Inmobiliaria", "Video"];
 ---
-
+<section id={id} >
 <div class="portafolio-container min-h-screen px-4 md:px-8 lg:px-20 py-20 md:py-40 bg-black text-white" id="portfolio-section">
     <!-- Título y Descripción -->
     <div class="text-left">
-        <h2 class="text-5xl md:text-7xl lg:text-[120px] font-bold mb-2 leading-none font-serif transition-all">Portafolio</h2>
+        <h2 class="text-5xl md:text-7xl lg:text-[120px] font-normal mb-2 leading-none font-serif transition-all">Portafolio</h2>
         <div class="w-full md:w-800 h-0.5 bg-[#B1293E] scale-x-0 mb-2" id="underline"></div>
         <p class="text-base md:text-xl mt-2 pb-10 md:pb-40 max-w-4xl">
             Sabemos que el trabajo bien hecho, la pasión que le imprimimos a todos nuestros proyectos, 
@@ -326,6 +329,7 @@ const tags = ["Todo", "Comerciales", "Fotografía Corporativa", "Fotografía de 
         </div>
     </div>
 </div>
+</section>
 
 <style>
     .tag-filter {
@@ -338,28 +342,31 @@ const tags = ["Todo", "Comerciales", "Fotografía Corporativa", "Fotografía de 
         background-color: #B1293E;
         transform: translateY(-2px);
     }
-
+  
     #underline {
         transform-origin: left;
     }
-
+  
+    /* Asegúrate de que los elementos sean visibles */
     .project-item {
-        visibility: hidden;
+        visibility: visible;
+        opacity: 1;
     }
-
+  
     .modal {
         transition: opacity 0.3s ease-in-out;
     }
-
+  
     .modal.hidden {
         opacity: 0;
         pointer-events: none;
     }
-
+  
     .modal:not(.hidden) {
         opacity: 1;
     }
-</style>
+  </style>
+  
 
 <script>
     import { gsap } from 'gsap';
@@ -368,165 +375,110 @@ const tags = ["Todo", "Comerciales", "Fotografía Corporativa", "Fotografía de 
     gsap.registerPlugin(ScrollTrigger);
     
     document.addEventListener('DOMContentLoaded', () => {
-        // Animaciones GSAP
-        gsap.set(['#portfolio-section h2', '.tag-filter', '.project-item'], {
-            opacity: 0,
-            y: 100
-        });
+  // Modal y Filtros
+  const modal = document.getElementById('portfolioModal');
+  const closeBtn = document.getElementById('closeModalBtn');
+  const filterButtons = document.querySelectorAll('.tag-filter');
+  const projectItems = document.querySelectorAll('.project-item');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalTags = document.getElementById('modalTags');
+  const carouselContainer = document.getElementById('carouselContainer');
 
-        gsap.to('#portfolio-section h2', {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: '#portfolio-section',
-                start: 'top center',
-                toggleActions: 'play none none reset'
-            }
-        });
+  // Función para obtener el ID de YouTube
+  function getYouTubeVideoId(url) {
+    const regex = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regex);
+    return (match && match[2].length === 11) ? match[2] : null;
+  }
 
-        gsap.fromTo('#underline', { scaleX: 0 }, {
-            scaleX: 1,
-            duration: 1,
-            delay: 0.5,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: '#portfolio-section',
-                start: 'top center',
-                toggleActions: 'play none none reset'
-            }
-        });
-
-        gsap.to('.tag-filter', {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: '#portfolio-section',
-                start: 'top center',
-                toggleActions: 'play none none reset'
-            }
-        });
-
-        gsap.to('.project-item', {
-            opacity: 1,
-            visibility: 'visible',
-            y: 0,
-            duration: 0.8,
-            stagger: { amount: 1, from: "start" },
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: '.project-item',
-                start: 'top bottom-=100',
-                toggleActions: 'play none none reset'
-            }
-        });
-
-        // Modal y Filtros
-        const modal = document.getElementById('portfolioModal');
-        const closeBtn = document.getElementById('closeModalBtn');
-        const filterButtons = document.querySelectorAll('.tag-filter');
-        const projectItems = document.querySelectorAll('.project-item');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalTags = document.getElementById('modalTags');
-        const carouselContainer = document.getElementById('carouselContainer');
-
-        // Función para obtener ID de YouTube
-        function getYouTubeVideoId(url) {
-            const regex = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-            const match = url.match(regex);
-            return (match && match[2].length === 11) ? match[2] : null;
-        }
-
-        // Filtros
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filterValue = button.getAttribute('data-filter') || 'Todo';
-                filterButtons.forEach(btn => btn.classList.remove('bg-[#B1293E]'));
-                button.classList.add('bg-[#B1293E]');
-
-                projectItems.forEach(item => {
-                    const categories = item.getAttribute('data-category')?.split(',') || [];
-                    const shouldShow = filterValue === 'Todo' || categories.includes(filterValue);
-                    item.classList.toggle('hidden', !shouldShow);
-                });
-            });
-        });
-
-        // Modal
-        if (modal && closeBtn && carouselContainer && modalTitle && modalTags) {
-            projectItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const title = item.getAttribute('data-title');
-                    const videoUrl = item.getAttribute('data-video-url');
-                    const images = item.getAttribute('data-images')?.split('|').filter(Boolean) || [];
-                    const categories = item.getAttribute('data-category');
-
-                    modal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                    carouselContainer.innerHTML = '';
-
-                    if (videoUrl) {
-                        const videoId = getYouTubeVideoId(videoUrl);
-                        if (videoId) {
-                            carouselContainer.innerHTML = `
-                                <div class="video-wrapper w-full h-full">
-                                    <iframe 
-                                        class="w-full h-full" 
-                                        src="https://www.youtube.com/embed/${videoId}" 
-                                        frameborder="0" 
-                                        allowfullscreen
-                                    ></iframe>
-                                </div>
-                            `;
-                        }
-                    } else if (images.length > 0) {
-                        carouselContainer.innerHTML = `
-                            <div class="flex flex-col gap-8 w-full max-h-full p-4">
-                                <div id="mainImage" class="w-full h-[60vh]">
-                                    <img 
-                                        src="${images[0]}" 
-                                        alt="${title}"
-                                        class="w-full h-full object-contain"
-                                    />
-                                </div>
-                                <div class="grid grid-cols-3 gap-4">
-                                    ${images.map(img => `
-                                        <div class="w-full aspect-[4/3] cursor-pointer">
-                                            <img 
-                                                src="${img}" 
-                                                alt="${title}"
-                                                class="w-full h-full object-cover thumbnail-img"
-                                                onclick="document.querySelector('#mainImage img').src = '${img}'"
-                                            />
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        `;
-                    }
-
-                    if (modalTitle) modalTitle.textContent = title;
-                    if (modalTags) modalTags.textContent = categories;
-                });
-            });
-
-            const closeModal = () => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
-                carouselContainer.innerHTML = '';
-            };
-
-            closeBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeModal();
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeModal();
-            });
-        }
+  // Filtros: muestran u ocultan los proyectos según la categoría
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filterValue = button.getAttribute('data-filter') || 'Todo';
+      filterButtons.forEach(btn => btn.classList.remove('bg-[#B1293E]'));
+      button.classList.add('bg-[#B1293E]');
+      
+      projectItems.forEach(item => {
+        const categories = item.getAttribute('data-category')?.split(',') || [];
+        const shouldShow = filterValue === 'Todo' || categories.includes(filterValue);
+        item.classList.toggle('hidden', !shouldShow);
+      });
     });
+  });
+
+  // Modal: abre el modal con el contenido correspondiente (video o imágenes)
+  if (modal && closeBtn && carouselContainer && modalTitle && modalTags) {
+    projectItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const title = item.getAttribute('data-title');
+        const videoUrl = item.getAttribute('data-video-url');
+        const images = item.getAttribute('data-images')?.split('|').filter(Boolean) || [];
+        const categories = item.getAttribute('data-category');
+
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        carouselContainer.innerHTML = '';
+
+        if (videoUrl) {
+          const videoId = getYouTubeVideoId(videoUrl);
+          if (videoId) {
+            carouselContainer.innerHTML = `
+              <div class="video-wrapper w-full h-full">
+                <iframe 
+                  class="w-full h-full" 
+                  src="https://www.youtube.com/embed/${videoId}" 
+                  frameborder="0" 
+                  allowfullscreen
+                ></iframe>
+              </div>
+            `;
+          }
+        } else if (images.length > 0) {
+          carouselContainer.innerHTML = `
+            <div class="flex flex-col gap-8 w-full max-h-full p-4">
+              <div id="mainImage" class="w-full h-[60vh]">
+                <img 
+                  src="${images[0]}" 
+                  alt="${title}"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="grid grid-cols-3 gap-4">
+                ${images.map(img => `
+                  <div class="w-full aspect-[4/3] cursor-pointer">
+                    <img 
+                      src="${img}" 
+                      alt="${title}"
+                      class="w-full h-full object-cover thumbnail-img"
+                      onclick="document.querySelector('#mainImage img').src = '${img}'"
+                    />
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }
+
+        if (modalTitle) modalTitle.textContent = title;
+        if (modalTags) modalTags.textContent = categories;
+      });
+    });
+
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      carouselContainer.innerHTML = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+});
+
+
 </script>

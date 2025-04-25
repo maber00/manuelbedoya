@@ -1,144 +1,229 @@
 ---
+// Ruta al video local
+const videoPath = "/src/assets/oswal.mp4";
 ---
-<section class="why-render-section relative flex items-end bg-black text-white min-h-screen overflow-hidden">
-    <!-- Líneas de fondo onduladas -->
-    <div class="absolute inset-0 opacity-10">
-      <svg viewBox="0 0 1440 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-full">
-        <path d="M0,100 C300,150 500,50 1440,170 L1440,800 L0,800 Z" fill="none" stroke="#fff" stroke-width="1"></path>
-        <path d="M0,200 C300,250 700,150 1440,270 L1440,800 L0,800 Z" fill="none" stroke="#fff" stroke-width="1"></path>
-        <path d="M0,300 C200,350 600,250 1440,370 L1440,800 L0,800 Z" fill="none" stroke="#fff" stroke-width="1"></path>
-        <path d="M0,400 C400,450 800,350 1440,470 L1440,800 L0,800 Z" fill="none" stroke="#fff" stroke-width="1"></path>
-        <path d="M0,500 C500,550 900,450 1440,570 L1440,800 L0,800 Z" fill="none" stroke="#fff" stroke-width="1"></path>
-      </svg>
-    </div>
-    
-    <div class="container mx-auto px-6 relative z-10 py-24">
-      <!-- Título grande con animación al scroll -->
-      <h2 class="big-title font-serif text-[clamp(2.5rem,8vw,7rem)] font-black leading-none mb-12 opacity-0 transform translate-y-20">
-        Por qué elegir<br/>RENDER
-      </h2>
-      
-      <!-- Contenido que aparece después -->
-      <div class="content-wrapper max-w-3xl opacity-0 transform translate-y-16">
+
+<section id="por-que-render" class="relative flex items-center bg-white text-black overflow-hidden py-24 md:py-32">
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-12 items-center">
+      <!-- Contenido de texto -->
+      <div class="content-wrapper leading-relaxed">
+        <!-- Título grande -->
+        <h2 class="font-serif text-[clamp(2.5rem,8vw,5rem)] font-normal leading-none mb-12 text-black">
+          Por qué elegir<br/>RENDER
+        </h2>
+        
         <div class="mb-12">
-          <p class="text-xl sm:text-2xl font-light mb-8">
+          <p class="text-xl leading-snug  sm:text-2xl font-light mb-8 text-black">
             En RENDER, creemos en el poder de la conexión humana y la fuerza de las marcas. Nos dedicamos a conectar personas e impulsar marcas, creando videos que inspiran y generan resultados tangibles.
           </p>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
             <!-- Razón 1 -->
-            <div class="reason-item opacity-0 transform translate-y-8">
-              <div class="mb-4">
-                <span class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-black">
+            <div class="reason-item">
+              <div class="flex items-center mb-4">
+                <span class="bg-[#B1293E] w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </span>
+                <h3 class="text-xl font-bold text-black">Experiencia Comprobada</h3>
               </div>
-              <h3 class="text-xl font-bold mb-2">Experiencia Comprobada</h3>
-              <p class="text-gray-300">Con más de 25 años de experiencia, hemos colaborado con grandes compañías como QUALA, ALPINA y COLPATRIA, convirtiéndonos en sus aliados estratégicos.</p>
+              <p class="text-gray-700 leading-snug font-roboto">Con más de 25 años de experiencia, hemos colaborado con grandes compañías como QUALA, ALPINA y COLPATRIA, convirtiéndonos en sus aliados estratégicos.</p>
             </div>
             
             <!-- Razón 2 -->
-            <div class="reason-item opacity-0 transform translate-y-8">
-              <div class="mb-4">
-                <span class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-black">
+            <div class="reason-item">
+              <div class="flex items-center mb-4">
+                <span class="bg-[#B1293E] w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                   </svg>
                 </span>
+                <h3 class="text-xl font-bold text-black">Tecnología IA para Historias</h3>
               </div>
-              <h3 class="text-xl font-bold mb-2">Tecnología IA para Historias</h3>
-              <p class="text-gray-300">Utilizamos IA de vanguardia para optimizar cada etapa del proceso, creando videos más atractivos, eficientes y personalizados para audiencias B2B y B2C.</p>
+              <p class="text-gray-700 leading-snug font-roboto">Utilizamos IA de vanguardia para optimizar cada etapa del proceso, creando videos más atractivos, eficientes y personalizados para audiencias B2B y B2C.</p>
             </div>
             
             <!-- Razón 3 -->
-            <div class="reason-item opacity-0 transform translate-y-8">
-              <div class="mb-4">
-                <span class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-black">
+            <div class="reason-item">
+              <div class="flex items-center mb-4">
+                <span class="bg-[#B1293E] w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                   </svg>
                 </span>
+                <h3 class="text-xl font-bold text-black">Equipo Profesional</h3>
               </div>
-              <h3 class="text-xl font-bold mb-2">Equipo Profesional</h3>
-              <p class="text-gray-300">Nuestro equipo está formado por profesionales apasionados y altamente capacitados en producción audiovisual y tecnología IA.</p>
+              <p class="text-gray-700 leading-snug font-roboto">Nuestro equipo está formado por profesionales apasionados y altamente capacitados en producción audiovisual y tecnología IA.</p>
             </div>
             
             <!-- Razón 4 -->
-            <div class="reason-item opacity-0 transform translate-y-8">
-              <div class="mb-4">
-                <span class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-black">
+            <div class="reason-item">
+              <div class="flex items-center mb-4">
+                <span class="bg-[#B1293E] w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3" />
                   </svg>
                 </span>
+                <h3 class="text-xl font-bold text-black">Alcance Global, Enfoque Local</h3>
               </div>
-              <h3 class="text-xl font-bold mb-2">Alcance Global, Enfoque Local</h3>
-              <p class="text-gray-300">Hemos desarrollado proyectos en más de 10 países de Latinoamérica, ofreciéndote una perspectiva global adaptada a tu mercado local.</p>
+              <p class="text-gray-700 leading-snug font-roboto">Hemos desarrollado proyectos en más de 10 países de Latinoamérica, ofreciéndote una perspectiva global adaptada a tu mercado local.</p>
             </div>
           </div>
         </div>
         
-        <div class="mt-16">
-          <a href="/about" class="inline-block px-8 py-3 rounded-lg border border-white text-white hover:bg-green-500 hover:border-green-500 transition-all duration-300">
-            Conoce más sobre nosotros
-          </a>
-        </div>
+        
+      </div>
+      
+      <!-- Video con botón de play -->
+      <div class="video-container relative h-[70vh] md:h-[80vh] rounded-lg overflow-hidden shadow-2xl">
+        <!-- Thumbnail / Preview -->
+        <div id="thumbnailOverlay" class="absolute inset-0 bg-black/30 z-10"></div>
+        
+        <!-- Video -->
+        <video 
+          id="mainVideo"
+          class="h-full w-full object-cover"
+          loop 
+          playsinline
+          preload="auto"
+        >
+          <source src={videoPath} type="video/mp4">
+          Tu navegador no soporta videos HTML5.
+        </video>
+        
+        <!-- Botón de Play -->
+        <button 
+          id="playButton" 
+          class="absolute inset-0 flex items-center justify-center z-20 w-full h-full bg-transparent border-none cursor-pointer"
+          aria-label="Reproducir video"
+        >
+          <div class="w-20 h-20 rounded-full bg-[#B1293E]/80 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        </button>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   
-  <style>
-    .why-render-section {
-      scroll-margin-top: 5rem;
+<style>
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 767px) {
+    .video-container {
+      height: 60vh; /* Altura más pequeña en móviles */
     }
-  </style>
+  }
   
-  <script>
-    import { gsap } from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  /* Estilos específicos para el video vertical */
+  .video-container video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
   
-    gsap.registerPlugin(ScrollTrigger);
+  /* Mejoras para la legibilidad de texto */
+  .content-wrapper {
+    max-width: 800px;
+  }
   
-    // Animación para el título grande
-    gsap.to('.big-title', {
-      y: 0,
-      opacity: 1,
-      duration: 1.2,
-      ease: 'power4.out',
-      scrollTrigger: {
-        trigger: '.why-render-section',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
+  /* Estilos de fuente específicos */
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+  
+  /* Estilos para el efecto hover del botón de CTA */
+  a:hover {
+    background-color: #B1293E;
+    color: white;
+  }
+  
+  /* Estilos para el botón de play que ocupa todo el área del video */
+  #playButton {
+    outline: none;
+  }
+  
+  #playButton:hover > div {
+    background-color: rgba(177, 41, 62, 0.95);
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+  }
+  
+  #playButton > div {
+    transition: all 0.2s ease;
+  }
+</style>
+
+<script>
+  // Esta función se ejecutará cuando el DOM esté completamente cargado
+  document.addEventListener('DOMContentLoaded', function() {
+    // Obtener referencias a los elementos del DOM
+    const playButton = document.getElementById('playButton');
+    const video = document.getElementById('mainVideo');
+    const overlay = document.getElementById('thumbnailOverlay');
+    
+    // Verificar que todos los elementos existan
+    if (playButton && video && overlay) {
+      // Convertir a tipo HTMLVideoElement para acceder a los métodos de video
+      const videoElement = video as HTMLVideoElement;
+      
+      // Función para reproducir el video
+      function playVideo() {
+        // Intentar reproducir el video
+        try {
+          // Comprobar si el video está cargado
+          if (videoElement.readyState >= 2) {
+            // Reproducir el video
+            const playPromise = videoElement.play();
+            
+            // El método play() devuelve una promesa
+            if (playPromise !== undefined) {
+              playPromise.then(() => {
+                // Reproducción iniciada con éxito
+                console.log('Video reproducido correctamente');
+                // Ocultar el botón y el overlay
+                playButton.style.display = 'none';
+                overlay.style.display = 'none';
+              }).catch(error => {
+                // Error en la reproducción
+                console.error('Error al reproducir el video:', error);
+              });
+            }
+          } else {
+            console.log('El video aún no está listo para reproducirse');
+            // Intentar cargar el video primero
+            videoElement.load();
+            setTimeout(() => playVideo(), 500); // Intentar de nuevo después de un breve retraso
+          }
+        } catch (e) {
+          console.error('Error al intentar reproducir el video:', e);
+        }
       }
-    });
-  
-    // Animación para el contenido
-    gsap.to('.content-wrapper', {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      delay: 0.3,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.why-render-section',
-        start: 'top 60%',
-        toggleActions: 'play none none reverse'
-      }
-    });
-  
-    // Animación para cada razón (staggered)
-    gsap.to('.reason-item', {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.reason-item',
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
-  </script>
+      
+      // Añadir evento de clic al botón de play
+      playButton.addEventListener('click', function(e) {
+        // Evitar que el clic se propague
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Reproducir el video
+        playVideo();
+      });
+      
+      // Cuando el video termina (si no está en loop), mostrar el botón y overlay de nuevo
+      videoElement.addEventListener('ended', function() {
+        if (!videoElement.loop) {
+          playButton.style.display = 'flex';
+          overlay.style.display = 'block';
+        }
+      });
+    } else {
+      console.error('No se encontraron algunos elementos necesarios para el video');
+    }
+  });
+</script>
