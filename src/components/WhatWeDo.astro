@@ -1,21 +1,24 @@
 ---
-// Ruta al video local
-const videoPath = "/src/assets/oswal.mp4";
+// Ya no necesitamos la ruta al video local porque usaremos un iframe de Vimeo
+// const videoPath = "/src/assets/oswal.mp4";
+
+// Import de la fuente "Permanent Marker" (añade esto al layout principal o importa en el head)
+// import "@fontsource/permanent-marker";
 ---
 
-<section id="por-que-render" class="relative flex items-center bg-white text-black overflow-hidden py-24 md:py-32">
+<section id="por-que-render" class="relative flex items-center bg-black text-white overflow-hidden py-24 md:py-32">
   <div class="container mx-auto px-6 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-12 items-center">
       <!-- Contenido de texto -->
       <div class="content-wrapper leading-relaxed">
         <!-- Título grande -->
-        <h2 class="font-serif text-[clamp(2.5rem,8vw,5rem)] font-normal leading-none mb-12 text-black">
-          Por qué elegir<br/>RENDER
+        <h2 class="font-serif text-[clamp(2.5rem,8vw,5rem)] font-normal leading-none mb-12 text-white">
+          Por qué elegir RENDER</span>
         </h2>
         
         <div class="mb-12">
-          <p class="text-xl leading-snug  sm:text-2xl font-light mb-8 text-black">
-            En RENDER, creemos en el poder de la conexión humana y la fuerza de las marcas. Nos dedicamos a conectar personas e impulsar marcas, creando videos que inspiran y generan resultados tangibles.
+          <p class="text-xl leading-snug sm:text-2xl font-light mb-8 text-white">
+            En <span>RENDER</span>, creemos en el poder de la conexión humana y la fuerza de las marcas. Nos dedicamos a conectar personas e impulsar marcas, creando videos que inspiran y generan resultados tangibles.
           </p>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
@@ -27,9 +30,9 @@ const videoPath = "/src/assets/oswal.mp4";
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </span>
-                <h3 class="text-xl font-bold text-black">Experiencia Comprobada</h3>
+                <h3 class="text-3xl font-bold text-green-500">Experiencia Comprobada</h3>
               </div>
-              <p class="text-gray-700 leading-snug font-roboto">Con más de 25 años de experiencia, hemos colaborado con grandes compañías como QUALA, ALPINA y COLPATRIA, convirtiéndonos en sus aliados estratégicos.</p>
+              <p class="text-white leading-snug font-roboto">Con más de 25 años de experiencia, hemos colaborado con grandes compañías como <span class="font-marker text-green-500">QUALA</span>, <span class="font-marker text-green-500">ALPINA</span> y <span class="font-marker text-green-500">COLPATRIA</span>, convirtiéndonos en sus aliados estratégicos.</p>
             </div>
             
             <!-- Razón 2 -->
@@ -40,9 +43,9 @@ const videoPath = "/src/assets/oswal.mp4";
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                   </svg>
                 </span>
-                <h3 class="text-xl font-bold text-black">Tecnología IA para Historias</h3>
+                <h3 class="text-3xl font-bold text-green-500">Tecnología IA para Historias</h3>
               </div>
-              <p class="text-gray-700 leading-snug font-roboto">Utilizamos IA de vanguardia para optimizar cada etapa del proceso, creando videos más atractivos, eficientes y personalizados para audiencias B2B y B2C.</p>
+              <p class="text-white leading-snug font-roboto">Utilizamos IA de vanguardia para optimizar cada etapa del proceso, creando videos más atractivos, eficientes y personalizados para audiencias <span class="font-marker text-green-500">B2B</span> y <span class="font-marker text-green-500">B2C</span>.</p>
             </div>
             
             <!-- Razón 3 -->
@@ -53,9 +56,9 @@ const videoPath = "/src/assets/oswal.mp4";
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                   </svg>
                 </span>
-                <h3 class="text-xl font-bold text-black">Equipo Profesional</h3>
+                <h3 class="text-3xl font-bold text-green-500">Equipo Profesional</h3>
               </div>
-              <p class="text-gray-700 leading-snug font-roboto">Nuestro equipo está formado por profesionales apasionados y altamente capacitados en producción audiovisual y tecnología IA.</p>
+              <p class="text-white leading-snug font-roboto">Nuestro equipo está formado por profesionales apasionados y altamente capacitados en <span class="font-marker text-green-500">producción audiovisual</span> y <span class="font-marker text-green-500">tecnología IA</span>.</p>
             </div>
             
             <!-- Razón 4 -->
@@ -66,64 +69,52 @@ const videoPath = "/src/assets/oswal.mp4";
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3" />
                   </svg>
                 </span>
-                <h3 class="text-xl font-bold text-black">Alcance Global, Enfoque Local</h3>
+                <h3 class="text-3xl font-bold text-green-500">Alcance Global, Enfoque Local</h3>
               </div>
-              <p class="text-gray-700 leading-snug font-roboto">Hemos desarrollado proyectos en más de 10 países de Latinoamérica, ofreciéndote una perspectiva global adaptada a tu mercado local.</p>
+              <p class="text-white leading-snug font-roboto">Hemos desarrollado proyectos en más de <span class="font-marker text-green-500">10 países de Latinoamérica</span>, ofreciéndote una perspectiva global adaptada a tu mercado local.</p>
             </div>
           </div>
         </div>
-        
-        
       </div>
       
-      <!-- Video con botón de play -->
+      <!-- Video con iframe de Vimeo -->
       <div class="video-container relative h-[70vh] md:h-[80vh] rounded-lg overflow-hidden shadow-2xl">
-        <!-- Thumbnail / Preview -->
-        <div id="thumbnailOverlay" class="absolute inset-0 bg-black/30 z-10"></div>
+        <!-- Contenedor del video de Vimeo -->
+        <div class="absolute inset-0 w-full h-full">
+          <iframe
+      class="absolute top-0 left-0 w-full h-full"
+      src="https://player.vimeo.com/video/1078755197?h=c1cd283147&loop=0&byline=0&title=0&muted=0"
+      allow="fullscreen; picture-in-picture"
+      title="oswal"
+    ></iframe>
+        </div>
         
-        <!-- Video -->
-        <video 
-          id="mainVideo"
-          class="h-full w-full object-cover"
-          loop 
-          playsinline
-          preload="auto"
-        >
-          <source src={videoPath} type="video/mp4">
-          Tu navegador no soporta videos HTML5.
-        </video>
-        
-        <!-- Botón de Play -->
-        <button 
-          id="playButton" 
-          class="absolute inset-0 flex items-center justify-center z-20 w-full h-full bg-transparent border-none cursor-pointer"
-          aria-label="Reproducir video"
-        >
+        <!-- Overlay inicial que desaparecerá cuando se reproduzca el video -->
+        <div id="videoOverlay" class="absolute inset-0 bg-black/50 z-10 flex items-center justify-center cursor-pointer">
           <div class="w-20 h-20 rounded-full bg-[#B1293E]/80 flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-        </button>
+        </div>
       </div>
     </div>
   </div>
 </section>
   
 <style>
+  /* Integramos la fuente Permanent Marker para "RENDER" */
+  .font-marker {
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 0.03em;
+  }
+  
   /* Estilos para dispositivos móviles */
   @media (max-width: 767px) {
     .video-container {
       height: 60vh; /* Altura más pequeña en móviles */
     }
-  }
-  
-  /* Estilos específicos para el video vertical */
-  .video-container video {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
   }
   
   /* Mejoras para la legibilidad de texto */
@@ -137,93 +128,43 @@ const videoPath = "/src/assets/oswal.mp4";
     font-weight: 400;
   }
   
-  /* Estilos para el efecto hover del botón de CTA */
-  a:hover {
-    background-color: #B1293E;
-    color: white;
+  /* Overlay del video con transición suave */
+  #videoOverlay {
+    transition: opacity 0.5s ease;
   }
   
-  /* Estilos para el botón de play que ocupa todo el área del video */
-  #playButton {
-    outline: none;
+  /* Estilo para resaltar los íconos al hover */
+  .reason-item:hover .bg-[#B1293E] {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
   }
   
-  #playButton:hover > div {
-    background-color: rgba(177, 41, 62, 0.95);
-    transform: scale(1.05);
-    transition: all 0.2s ease;
+  .reason-item .bg-[#B1293E] {
+    transition: transform 0.3s ease;
   }
   
-  #playButton > div {
-    transition: all 0.2s ease;
+  /* Ajustes para el iframe de Vimeo */
+  iframe {
+    border: none;
   }
 </style>
 
-<script>
-  // Esta función se ejecutará cuando el DOM esté completamente cargado
+<script is:inline>
+  // Usar is:inline para evitar errores de TypeScript con la API de Vimeo
   document.addEventListener('DOMContentLoaded', function() {
-    // Obtener referencias a los elementos del DOM
-    const playButton = document.getElementById('playButton');
-    const video = document.getElementById('mainVideo');
-    const overlay = document.getElementById('thumbnailOverlay');
+    const videoOverlay = document.getElementById('videoOverlay');
     
-    // Verificar que todos los elementos existan
-    if (playButton && video && overlay) {
-      // Convertir a tipo HTMLVideoElement para acceder a los métodos de video
-      const videoElement = video as HTMLVideoElement;
-      
-      // Función para reproducir el video
-      function playVideo() {
-        // Intentar reproducir el video
-        try {
-          // Comprobar si el video está cargado
-          if (videoElement.readyState >= 2) {
-            // Reproducir el video
-            const playPromise = videoElement.play();
-            
-            // El método play() devuelve una promesa
-            if (playPromise !== undefined) {
-              playPromise.then(() => {
-                // Reproducción iniciada con éxito
-                console.log('Video reproducido correctamente');
-                // Ocultar el botón y el overlay
-                playButton.style.display = 'none';
-                overlay.style.display = 'none';
-              }).catch(error => {
-                // Error en la reproducción
-                console.error('Error al reproducir el video:', error);
-              });
-            }
-          } else {
-            console.log('El video aún no está listo para reproducirse');
-            // Intentar cargar el video primero
-            videoElement.load();
-            setTimeout(() => playVideo(), 500); // Intentar de nuevo después de un breve retraso
-          }
-        } catch (e) {
-          console.error('Error al intentar reproducir el video:', e);
-        }
+    if (videoOverlay) {
+      // Función para quitar el overlay y permitir la interacción con el video
+      function handlePlayClick() {
+        videoOverlay.style.opacity = '0';
+        setTimeout(() => {
+          videoOverlay.style.display = 'none';
+        }, 500);
       }
       
-      // Añadir evento de clic al botón de play
-      playButton.addEventListener('click', function(e) {
-        // Evitar que el clic se propague
-        e.preventDefault();
-        e.stopPropagation();
-        
-        // Reproducir el video
-        playVideo();
-      });
-      
-      // Cuando el video termina (si no está en loop), mostrar el botón y overlay de nuevo
-      videoElement.addEventListener('ended', function() {
-        if (!videoElement.loop) {
-          playButton.style.display = 'flex';
-          overlay.style.display = 'block';
-        }
-      });
-    } else {
-      console.error('No se encontraron algunos elementos necesarios para el video');
+      // Añadir evento de clic al overlay
+      videoOverlay.addEventListener('click', handlePlayClick);
     }
   });
 </script>
