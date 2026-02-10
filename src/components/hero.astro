@@ -5,16 +5,16 @@ import Carrusel from "../components/BrandsCarousel.astro";
   <!-- Video Background con overlay inicial negro -->
   <div class="absolute inset-0 w-full h-full opacity-0 z-0" id="videoWrapper">
     <div class="absolute inset-0 w-full h-full video-container overflow-hidden">
-       <video
-  id="backgroundVideo"
-  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover transform-gpu"
-  src="/mrhide.mp4"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="auto"
-></video>
+       <div class="absolute inset-0 w-full h-full overflow-hidden">
+  <iframe
+    src="https://player.vimeo.com/video/1163773815?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0"
+    class="absolute top-1/2 left-1/2 w-[200vw] h-[200vh] -translate-x-1/2 -translate-y-1/2"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
+
 
     </div>
   </div>
