@@ -19,20 +19,38 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/300.css';
 import "@fontsource/noto-serif";
 import "@fontsource/permanent-marker";
- 
+import "@fontsource/bebas-neue";
+import "@fontsource/bebas-neue/400.css";
+import "@fontsource/libre-baskerville/400.css";
+import "@fontsource/libre-baskerville/700.css";
 
-// Importación de la imagen del logo (ruta corregida para Vercel)
+// Logo Mr Hide (ajusta la ruta/archivo)
 import { Image } from 'astro:assets';
-import logoImage from '../assets/logo-render.webp';
+import logoImage from '../assets/logo-mrHide.webp';
 
-export interface Props { 
+export interface Props {
   title: string;
 }
 
 // Configuración para SEO y Open Graph
 const { title } = Astro.props;
-const pageTitle = title ? `${title} | Render Medios Audiovisuales` : 'Render Medios Audiovisuales';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://tudominio.vercel.app').toString();
+
+// ✅ Marca
+const brandName = 'Mr Hide';
+
+// ✅ Dominio (cámbialo por el real cuando lo tengas)
+const siteFallback = 'https://mrHide.vercel.app';
+
+// ✅ Título + canonical
+const pageTitle = title ? `${title} | ${brandName}` : brandName;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteFallback).toString();
+
+// ✅ Metadata social (ajusta handles reales)
+const twitterCreator = '@mrHide';
+const twitterSite = '@mrHide';
+
+// ✅ OG Image (asegúrate que exista en /public)
+const ogImageURL = new URL('/og-mrHide.jpg', Astro.site || siteFallback).toString();
 ---
 
 <!DOCTYPE html>
@@ -40,34 +58,37 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://tudomini
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" type="image/x-icon" href="/favicon.svg">
-    <meta name="generator" content={Astro.generator} />
     
+    <!-- Favicons (ajusta los archivos en /public) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <meta name="generator" content={Astro.generator} />
+
     <SEO
       title={pageTitle}
-      description="PRODUCCIÓN AUDIOVISUAL - Productora de comerciales, video marketing, tomas aéreas y fotografía publicitaria."
+      description="Realización audiovisual con procesos y automatización: video, podcast, animación y contenido continuo. Menos fricción. Más obra terminada."
       canonical={canonicalURL}
       twitter={{
-        creator: "@rendermedios",
-        site: "@rendermedios",
+        creator: twitterCreator,
+        site: twitterSite,
         card: "summary_large_image"
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Render Medios Audiovisuales`,
-          image: new URL('/og-image.jpg', Astro.site || 'https://tudominio.vercel.app').toString()
+          title: brandName,
+          image: ogImageURL
         },
         image: {
-          alt: "Render Medios Audiovisuales",
+          alt: "Mr Hide",
           width: 1200,
           height: 630
         },
       }}
     />
-    
+
     <!-- Precargar fuentes críticas -->
     <link
       rel="preload"
@@ -84,6 +105,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://tudomini
       crossorigin
     />
   </head>
+
   <body>
     <Navbar />
     <slot />

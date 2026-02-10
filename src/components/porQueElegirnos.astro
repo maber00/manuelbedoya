@@ -1,0 +1,166 @@
+---
+import { Image } from "astro:assets";
+
+// ✅ Cambia estas rutas por tus imágenes reales
+// Coloca los archivos en: src/assets/why/
+import img1 from "../assets/v2.webp";
+import img2 from "../assets/v2.webp";
+import img3 from "../assets/v2.webp";
+---
+
+<section class="bg-black text-white py-24" id="por-que">
+  <div class="container mx-auto px-6">
+    <!-- Header -->
+    <div class="max-w-5xl mx-auto text-center mb-16">
+      
+
+      <h2
+        class="text-4xl sm:text-6xl md:text-7xl text-[#f6ad1e] leading-none"
+        style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
+      >
+        Menos fricción. Más obra terminada.
+      </h2>
+
+      <p class="mt-6 text-base sm:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+        No vendemos horas ni equipos. Diseñamos un sistema para producir contenido claro, consistente y listo para usarse.
+      </p>
+    </div>
+
+    <!-- 3 Columns -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <!-- Col 1 -->
+      <article class="why-card rounded-2xl overflow-hidden ">
+        <div class="p-8 flex flex-col gap-4">
+          <h3
+            class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight"
+            style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
+          >
+            Por qué Mr Hide
+          </h3>
+
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
+            <span class="text-gray-100 font-semibold">No nacimos ayer.</span>
+            Venimos de años trabajando en producción audiovisual, contenido y postproducción para marcas reales,
+            desde distintos equipos y productoras.
+          </p>
+
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
+            Mr Hide es el resultado de esa experiencia aplicada a un nuevo modelo:
+            <span class="text-[#f6ad1e] font-semibold">menos fricción</span>, más foco, más obra terminada.
+          </p>
+
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
+            No vendemos audiovisual por horas. Convertimos ideas en piezas claras y consistentes, con procesos que
+            ahorran tiempo y elevan la calidad.
+          </p>
+
+          <div class="pt-2 flex flex-wrap gap-2">
+            <span class="tag">Criterio</span>
+            <span class="tag">Proceso</span>
+            <span class="tag">Velocidad</span>
+            <span class="tag">Consistencia</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Col 2 -->
+      <!-- Col 2 -->
+<article class="why-card rounded-2xl overflow-hidden ">
+  <div class="p-8 flex flex-col gap-6">
+    <h3
+      class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight"
+      style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
+    >
+      Esto es lo que somos 
+    </h3>
+
+    <p class="text-base sm:text-lg text-gray-100 leading-relaxed font-semibold">
+      La IA y la técnica están para servir a la obra, no para protagonizarla.
+    </p>
+
+    <p class="text-sm uppercase tracking-[0.18em] text-gray-400">
+      Video · Podcast · Audio · Animación · Contenido continuo
+    </p>
+
+    <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
+      Diseñamos procesos donde una idea se convierte en múltiples piezas bien hechas:
+      podcasts, clips y formatos cortos para redes, animaciones y animatics de producto,
+      además de piezas ágiles y claras para comunicación interna de valor.
+    </p>
+
+    <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
+      Trabajamos en equipos multidiversos para producir contenido claro y constante.
+      Menos fricción. Más piezas reales.
+    </p>
+
+    <div class="pt-2 flex flex-wrap gap-2">
+      <span class="tag">Realización</span>
+      <span class="tag">Procesos</span>
+      <span class="tag">Automatización</span>
+      <span class="tag">Narrativa</span>
+    </div>
+  </div>
+</article>
+
+
+      <!-- Col 3 -->
+      <article class="why-card rounded-2xl overflow-hidden ">
+        <div class="p-4">
+          <div class="grid grid-cols-1 gap-4">
+            <div class="relative overflow-hidden rounded-xl">
+              <Image src={img1} alt="Mr Hide — trabajo 1" class="w-full h-[220px] object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            </div>
+
+            <div class="relative overflow-hidden rounded-xl">
+              <Image src={img2} alt="Mr Hide — trabajo 2" class="w-full h-[220px] object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            </div>
+
+            <div class="relative overflow-hidden rounded-xl">
+              <Image src={img3} alt="Mr Hide — trabajo 3" class="w-full h-[220px] object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            </div>
+          </div>
+
+          <p class="text-sm text-gray-300 mt-5 px-2 leading-relaxed">
+            Menos promesa. Más obra terminada. Un sistema que produce piezas reales, listas para usarse.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Footer line -->
+    <div class="max-w-6xl mx-auto text-center mt-14">
+      <p class="text-base sm:text-xl text-gray-200">
+        Más contenido útil. Menos tiempo perdido.
+        <span class="text-[#f6ad1e] font-semibold"> Rápido. Profesional. Funcional.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .why-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(255,255,255,0.10);
+    width: 100%;
+  }
+
+  .tag {
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.85);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    background: rgba(255,255,255,0.04);
+  }
+</style>
