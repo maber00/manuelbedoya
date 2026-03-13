@@ -1,34 +1,24 @@
 ---
 import { Image } from "astro:assets";
-
-// ✅ Cambia estas rutas por tus fotos reales (recomendado: 1200px lado largo)
-// Coloca los archivos en: src/assets/team/
-import manuelPhoto from "../assets/v2.webp";
-import davidPhoto from "../assets/v2.webp";
+import manuelPhoto from "../assets/manuel.webp";
 ---
 
 <section class="bg-black text-white py-24" id="perfiles">
   <div class="container mx-auto px-6">
     <!-- Header -->
     <div class="max-w-5xl mx-auto text-center mb-16">
-     
-
       <h2
         class="text-4xl sm:text-6xl md:text-7xl text-[#f6ad1e] leading-none"
         style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
       >
-        Personas y marcas reales.
+        Manuel Bedoya
       </h2>
 
-      <p class="mt-6 text-base sm:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-        Trabajamos con empresas, marcas y personas que crean contenido todos los días.
-        Nosotros nos encargamos de que ese contenido tenga sentido, forma y permanencia.
-      </p>
+      
     </div>
 
-    <!-- Cards -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
-      <!-- Manuel -->
+    <!-- Card -->
+    <div class="max-w-6xl mx-auto">
       <article class="profile-card rounded-2xl overflow-hidden border border-white/10 bg-white/5">
         <div class="grid grid-cols-1 md:grid-cols-5 gap-0">
           <div class="md:col-span-2 relative">
@@ -43,105 +33,49 @@ import davidPhoto from "../assets/v2.webp";
             </div>
           </div>
 
-          <div class="md:col-span-3 p-8 flex flex-col gap-4">
+          <div class="md:col-span-3 p-8 flex flex-col gap-5 justify-center">
             <div class="flex items-center justify-between gap-4">
               <div>
                 <h3
                   class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight"
                   style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
                 >
-                  Manuel Bedoya
+                  Producción · Tecnología · Marketing
                 </h3>
-                <p class="text-sm sm:text-base text-gray-300 mt-1">
-                  Co-founder · Ventas · Tecnología · Marketing
-                </p>
               </div>
 
               <span class="badge hidden sm:inline-flex">
-                Co-founder
+                Perfil
               </span>
             </div>
 
             <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-              Ha trabajado en canales de TV, productoras y startups. Conecta producción audiovisual con tecnología:
-              entiende el lenguaje creativo y también el técnico.
+              Soy una persona curiosa por naturaleza. He desarrollado mi experiencia trabajando
+              en distintos roles, equipos y contextos, desde canales de TV y productoras hasta
+              startups, combinando mirada creativa, criterio visual y capacidad de ejecución.
             </p>
 
             <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-              <span class="text-gray-100 font-semibold">Habla el lenguaje creativo, pero también el de ventas y negocio.</span>
-              Automatiza procesos para convertir el contenido en una herramienta escalable, medible y rentable.
+              A lo largo de ese recorrido he aprendido a moverme entre lo audiovisual,
+              lo técnico y lo estratégico, entendiendo no solo cómo se crea una pieza,
+              sino también cómo se conecta con un objetivo, un proceso y un resultado.
+            </p>
+
+            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
+              Hoy estoy enfocado en integrar creatividad, tecnología e inteligencia artificial
+              para convertir ideas en contenido claro, consistente y útil para marcas reales.
             </p>
 
             <div class="pt-2 flex flex-wrap gap-2">
-              <span class="tag">Estrategia</span>
-              <span class="tag">Automatización</span>
+              <span class="tag">Producción</span>
+              <span class="tag">Tecnología</span>
               <span class="tag">Marketing</span>
-              <span class="tag">Ventas</span>
+              <span class="tag">IA</span>
+              <span class="tag">Estrategia</span>
             </div>
           </div>
         </div>
       </article>
-
-      <!-- David -->
-      <article class="profile-card rounded-2xl overflow-hidden border border-white/10 bg-white/5">
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-0">
-          <div class="md:col-span-2 relative">
-            <div class="aspect-[4/5] md:aspect-auto md:h-full overflow-hidden">
-              <Image
-                src={davidPhoto}
-                alt="David Rodríguez"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            </div>
-          </div>
-
-          <div class="md:col-span-3 p-8 flex flex-col gap-4">
-            <div class="flex items-center justify-between gap-4">
-              <div>
-                <h3
-                  class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight"
-                  style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
-                >
-                  David Rodríguez
-                </h3>
-                <p class="text-sm sm:text-base text-gray-300 mt-1">
-                  Co-founder · Dirección · Postproducción · Estilo
-                </p>
-              </div>
-
-              <span class="badge hidden sm:inline-flex">
-                Co-founder
-              </span>
-            </div>
-
-            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-              Publicista de profesión pero artista audiovisual por vocación. Desde pequeño escogió este camino: es lo que le brinda felicidad.
-            </p>
-
-            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-              Ha trabajado como postproductor, graficador, diseñador y director de videoclips.
-              Domina tendencias y estilos, con criterio visual y buen gusto para construir piezas memorables.
-            </p>
-
-            <div class="pt-2 flex flex-wrap gap-2">
-              <span class="tag">Dirección</span>
-              <span class="tag">Edición</span>
-              <span class="tag">Motion</span>
-              <span class="tag">Tendencias</span>
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <!-- Footer line -->
-    <div class="max-w-5xl mx-auto text-center mt-14">
-      <p class="text-base sm:text-xl text-gray-200">
-        Entre los dos suman <span class="text-[#f6ad1e] font-semibold">+30 años</span> de experiencia construyendo contenido que
-        <span class="text-[#f6ad1e] font-semibold"> se recuerda y vende</span>.
-      </p>
     </div>
   </div>
 </section>
@@ -150,29 +84,30 @@ import davidPhoto from "../assets/v2.webp";
   .profile-card {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
+
   .profile-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
   }
 
   .badge {
-    border: 1px solid rgba(246,173,30,0.35);
+    border: 1px solid rgba(246, 173, 30, 0.35);
     color: #f6ad1e;
     padding: 6px 12px;
     border-radius: 999px;
     font-size: 12px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: rgba(246,173,30,0.06);
+    background: rgba(246, 173, 30, 0.06);
     white-space: nowrap;
   }
 
   .tag {
-    border: 1px solid rgba(255,255,255,0.14);
-    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.85);
     padding: 6px 10px;
     border-radius: 999px;
     font-size: 12px;
-    background: rgba(255,255,255,0.04);
+    background: rgba(255, 255, 255, 0.04);
   }
 </style>

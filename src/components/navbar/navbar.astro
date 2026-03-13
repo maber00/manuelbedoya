@@ -8,8 +8,8 @@ import logoDark from "../../assets/mrHyde.svg"; // ✅ si no tienes versión dar
 // Menú actualizado (ajusta anchors según tus IDs reales)
 const menuitems = [
   { title: "INICIO", path: "/" },
-  { title: "NOSOTROS", path: "/#por-que" },      // ✅ antes estaba /#por-que-render
-  { title: "SERVICIOS", path: "/#servicios" },
+  { title: "QUIÉN SOY", path: "/#por-que" },      // ✅ antes estaba /#por-que-render
+  { title: "LO QUE HAGO", path: "/#servicios" },
   { title: "PORTAFOLIO", path: "/#portafolio" },
   { title: "CONTACTO", path: "/contacto" },
 ];
@@ -22,10 +22,7 @@ const menuitems = [
   >
     <div class="flex flex-col lg:flex-row justify-between items-center py-3 px-4 max-w-7xl mx-auto">
       <div class="flex w-full lg:w-auto items-center justify-between mb-4 lg:mb-0">
-        <a href="/" class="text-lg flex items-center">
-          <img src={logoWhite.src} alt="Mr Hide" id="logo-white" class="h-12 mr-7" />
-          <img src={logoDark.src} alt="Mr Hide" id="logo-dark" class="h-12 mr-7 hidden" />
-        </a>
+        
 
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 menu-icon text-white" />
