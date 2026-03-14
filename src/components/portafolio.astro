@@ -20,7 +20,6 @@ import iaThumb1 from '../assets/ninos.jpg';
 import iaThumb2 from '../assets/moneda.jpg';
 import iaThumb3 from '../assets/vive.jpg';
 
-
 type Project = {
   id: number;
   thumbnail: ImageMetadata;
@@ -154,10 +153,11 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
       ))}
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-2 px-0 md:px-[50px] lg:px-[100px]">
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-3 px-0 md:px-[50px] lg:px-[100px]">
       {projects.map((project) => (
-        <div
-          class="project-item relative md:h-[250px] h-[150px] cursor-pointer group"
+        <button
+          type="button"
+          class="project-item relative w-full md:h-[250px] h-[160px] cursor-pointer group overflow-hidden rounded-lg bg-neutral-900 block"
           data-category={project.tags.join(',')}
           data-title={project.title}
           data-video-url={project.videoUrl}
@@ -165,19 +165,19 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
           <Image
             src={project.thumbnail}
             alt={project.title}
-            class="w-full h-full object-cover"
-            width={500}
-            height={500}
+            class="block w-full h-full object-cover"
+            widths={[500]}
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
 
-          <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300">
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span class="text-white text-lg md:text-xl font-medium text-center px-2">
-                Ver Proyecto
-              </span>
-            </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300"></div>
+
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="text-white text-lg md:text-xl font-medium text-center px-2">
+              Ver Proyecto
+            </span>
           </div>
-        </div>
+        </button>
       ))}
     </div>
 
@@ -185,7 +185,7 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
       <div id="modalOverlay" class="absolute inset-0 bg-black/90"></div>
 
       <div class="relative flex flex-col lg:flex-row h-full items-center justify-center p-4 md:p-8 lg:p-[100px] gap-4 lg:gap-8 overflow-y-auto z-10">
-        <div class="w-full lg:w-2/3 aspect-video bg-black relative">
+        <div class="w-full lg:w-2/3 aspect-video bg-black relative rounded-lg overflow-hidden">
           <div id="carouselContainer" class="relative w-full h-full"></div>
         </div>
 
@@ -228,6 +228,8 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
   .project-item {
     visibility: visible;
     opacity: 1;
+    border: 0;
+    padding: 0;
   }
 
   .modal {
@@ -305,41 +307,39 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
           document.body.style.overflow = 'hidden';
           carouselContainer.innerHTML = '';
 
-          if (videoUrl) {
-            const youtubeId = getYouTubeVideoId(videoUrl);
-            const vimeoId = getVimeoVideoId(videoUrl);
+          const youtubeId = getYouTubeVideoId(videoUrl);
+          const vimeoId = getVimeoVideoId(videoUrl);
 
-            if (youtubeId) {
-              carouselContainer.innerHTML = `
-                <div class="video-wrapper w-full h-full">
-                  <iframe
-                    class="w-full h-full"
-                    src="https://www.youtube.com/embed/${youtubeId}"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              `;
-            } else if (vimeoId) {
-              carouselContainer.innerHTML = `
-                <div class="video-wrapper w-full h-full">
-                  <iframe
-                    class="w-full h-full"
-                    src="https://player.vimeo.com/video/${vimeoId}"
-                    frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              `;
-            } else {
-              carouselContainer.innerHTML = `
-                <div class="w-full h-full flex items-center justify-center text-center p-6">
-                  <p class="text-white text-lg">El link del video no es válido. Revisa la URL de YouTube o Vimeo.</p>
-                </div>
-              `;
-            }
+          if (youtubeId) {
+            carouselContainer.innerHTML = `
+              <div class="video-wrapper w-full h-full">
+                <iframe
+                  class="w-full h-full"
+                  src="https://www.youtube.com/embed/${youtubeId}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            `;
+          } else if (vimeoId) {
+            carouselContainer.innerHTML = `
+              <div class="video-wrapper w-full h-full">
+                <iframe
+                  class="w-full h-full"
+                  src="https://player.vimeo.com/video/${vimeoId}"
+                  frameborder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            `;
+          } else {
+            carouselContainer.innerHTML = `
+              <div class="w-full h-full flex items-center justify-center text-center p-6">
+                <p class="text-white text-lg">El link del video no es válido. Revisa la URL de YouTube o Vimeo.</p>
+              </div>
+            `;
           }
 
           modalTitle.textContent = title;
