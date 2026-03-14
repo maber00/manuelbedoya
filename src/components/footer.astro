@@ -1,20 +1,65 @@
 ---
-import { Image } from 'astro:assets';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-black text-white py-6">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-wrap items-center justify-between">
-      <!-- Contenedor para logo y botón -->
-      
-      
-      <!-- Copyright centrado debajo -->
-      <div class="w-full text-center">
-        <p class="text-sm text-white">
-          Copyright © {currentYear} Mr Hide. All rights reserved.
+<footer class="bg-black text-white border-t border-white/10">
+  <div class="container mx-auto px-6 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <div>
+        <h3
+          class="text-2xl sm:text-3xl text-[#f6ad1e] leading-tight"
+          style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
+        >
+          Manuel Bedoya
+        </h3>
+        <p class="mt-3 text-sm sm:text-base text-gray-300 leading-relaxed max-w-md">
+          Producción audiovisual, contenido, postproducción y nuevas formas de crear
+          piezas claras, útiles y bien hechas.
         </p>
       </div>
+
+      <div>
+        <p class="text-sm uppercase tracking-[0.18em] text-gray-400 mb-3">
+          Contacto
+        </p>
+
+        <div class="flex flex-col gap-2 text-sm sm:text-base">
+          <a
+            href="mailto:mbedoyarudas@gmail.com"
+            class="text-white hover:text-[#f6ad1e] transition-colors"
+          >
+            mbedoyarudas@gmail.com
+          </a>
+
+          <a
+            href="https://wa.me/573017872595"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-white hover:text-[#f6ad1e] transition-colors"
+          >
+            +57 301 787 2595
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm uppercase tracking-[0.18em] text-gray-400 mb-3">
+          Navegación
+        </p>
+
+        <div class="flex flex-col gap-2 text-sm sm:text-base">
+          <a href="/#por-que" class="text-white hover:text-[#f6ad1e] transition-colors">Sobre mí</a>
+          <a href="/#servicios" class="text-white hover:text-[#f6ad1e] transition-colors">Servicios</a>
+          <a href="/#portafolio" class="text-white hover:text-[#f6ad1e] transition-colors">Portafolio</a>
+          <a href="/contacto" class="text-white hover:text-[#f6ad1e] transition-colors">Contacto</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-white/10 text-center">
+      <p class="text-sm text-gray-400">
+        © {currentYear} Manuel Bedoya. Todos los derechos reservados.
+      </p>
     </div>
   </div>
 </footer>
