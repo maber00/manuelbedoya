@@ -15,26 +15,56 @@
     </div>
   </div>
 
-  <!-- Overlay negro -->
-  <div class="absolute inset-0 bg-black/50 z-10"></div>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/55 z-10"></div>
 
-  <!-- Contenido -->
-  <div class="relative z-20 w-full flex flex-col">
-    <div class="pl-6 sm:pl-12 md:pl-16 lg:pl-24 mb-16 md:mb-24">
-      <div class="flex flex-col text-white max-w-4xl">
+  <!-- Content -->
+  <div class="relative z-20 w-full">
+    <div class="px-6 sm:px-12 md:px-16 lg:px-24 pb-16 md:pb-24">
+      <div class="max-w-5xl text-white">
         <p
-          class="text-4xl sm:text-2xl md:text-5xl font-bold tracking-tight text-left text-[#f6ad1e]"
-          style="font-family: 'Libre Baskerville', 'Baskerville', serif;"
+          class="text-sm sm:text-base uppercase tracking-[0.22em] text-white/70 mb-4"
         >
-          CONTENIDO AUTÉNTICO
+          Manuel Bedoya
         </p>
 
-        <p
-          class="text-4xl sm:text-2xl md:text-7xl lg:text-5xl xl:text-7xl font-bold tracking-tight text-left text-[#f6ad1e]"
-          style="font-family: 'Libre Baskerville', 'Baskerville', serif;"
+        <h1
+          class="text-4xl sm:text-5xl md:text-7xl lg:text-[88px] leading-[0.95] text-[#f6ad1e]"
+          style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
         >
-          IMPACTO PODEROSO
+          Filmmaker IA
+        </h1>
+
+        <p class="mt-5 text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed">
+          Narrativa visual, postproducción y workflows generativos para desarrollar piezas audiovisuales con criterio, intención y acabado real.
         </p>
+
+        <p class="mt-6 text-sm sm:text-base md:text-lg text-white/75 max-w-3xl leading-relaxed">
+          Vengo de la producción y la postproducción audiovisual. Hoy integro dirección visual, lenguaje cinematográfico y herramientas de inteligencia artificial para crear piezas que combinan exploración visual y resolución técnica.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="#portafolio"
+            class="inline-flex items-center rounded-full bg-[#f6ad1e] px-5 py-3 text-sm sm:text-base font-medium text-black transition hover:opacity-90"
+          >
+            Ver portafolio
+          </a>
+
+          <a
+            href="#perfiles"
+            class="inline-flex items-center rounded-full border border-white/20 px-5 py-3 text-sm sm:text-base text-white transition hover:border-[#f6ad1e] hover:text-[#f6ad1e]"
+          >
+            Sobre mí
+          </a>
+
+          <a
+            href="/contacto"
+            class="inline-flex items-center rounded-full border border-white/20 px-5 py-3 text-sm sm:text-base text-white transition hover:border-[#f6ad1e] hover:text-[#f6ad1e]"
+          >
+            Contacto
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -49,7 +79,6 @@
     overflow: hidden;
   }
 
-  /* Móviles */
   @media (max-width: 767px) {
     #backgroundVideo {
       width: 200vw !important;
@@ -59,7 +88,6 @@
     }
   }
 
-  /* Tablets */
   @media (min-width: 768px) and (max-width: 1024px) {
     #backgroundVideo {
       width: 180vw !important;
@@ -69,7 +97,6 @@
     }
   }
 
-  /* Desktop mediano */
   @media (min-width: 1025px) and (max-width: 1366px) {
     #backgroundVideo {
       width: 150vw !important;
