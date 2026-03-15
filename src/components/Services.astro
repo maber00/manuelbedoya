@@ -1,3 +1,60 @@
+---
+export interface Props {
+  lang?: "en" | "es";
+}
+
+const { lang = "en" } = Astro.props;
+
+const copy =
+  lang === "es"
+    ? {
+        title: "Líneas de trabajo",
+        intro:
+          "Trabajo en la intersección entre lenguaje audiovisual, dirección visual, postproducción y herramientas generativas.",
+        items: [
+          {
+            title: "Narrativa y dirección visual",
+            body: "Desarrollo piezas con intención, estructura visual y coherencia narrativa, cuidando no solo cómo se ve una imagen, sino qué está contando y cómo sostiene una secuencia.",
+          },
+          {
+            title: "Postproducción y acabado",
+            body: "Trabajo el montaje, ritmo, color y ajuste fino de una pieza para convertir material disperso o imperfecto en una experiencia visual sólida.",
+          },
+          {
+            title: "Creación audiovisual con IA",
+            body: "Integro herramientas generativas dentro del proceso creativo para desarrollar escenas, visuales y secuencias que expanden lo que antes era posible producir.",
+          },
+          {
+            title: "Workflows y sistemas",
+            body: "Pienso procesos, conecto herramientas y organizo flujos para que la creación con IA no dependa del azar, sino de una lógica de trabajo que permita iterar, corregir y terminar mejor.",
+          },
+        ],
+      }
+    : {
+        title: "Areas of work",
+        intro:
+          "I work at the intersection of audiovisual language, visual direction, post-production and generative tools.",
+        items: [
+          {
+            title: "Storytelling and visual direction",
+            body: "I develop pieces with intention, visual structure and narrative coherence, paying attention not only to how an image looks, but to what it is saying and how it sustains a sequence.",
+          },
+          {
+            title: "Post-production and finishing",
+            body: "I work on editing, rhythm, color and final refinement to turn scattered or imperfect material into a solid visual experience.",
+          },
+          {
+            title: "AI audiovisual creation",
+            body: "I integrate generative tools into the creative process to develop scenes, visuals and sequences that expand what was previously possible to produce.",
+          },
+          {
+            title: "Workflows and systems",
+            body: "I design processes, connect tools and organize flows so AI creation does not depend on chance, but on a working logic that makes it possible to iterate, correct and finish better.",
+          },
+        ],
+      };
+---
+
 <section id="servicios" class="py-20 bg-black text-white">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16">
@@ -5,50 +62,28 @@
         class="text-4xl sm:text-6xl md:text-7xl text-[#f6ad1e] leading-none"
         style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
       >
-        Líneas de trabajo
+        {copy.title}
       </h2>
 
       <p class="mt-6 text-lg sm:text-xl max-w-4xl mx-auto text-gray-200 leading-relaxed">
-        Trabajo en la intersección entre lenguaje audiovisual, dirección visual, postproducción y herramientas generativas.
+        {copy.intro}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-8">
-        <h3 class="text-2xl sm:text-3xl text-[#f6ad1e] mb-4" style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;">
-          Narrativa y dirección visual
-        </h3>
-        <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-          Desarrollo piezas con intención, estructura visual y coherencia narrativa, cuidando no solo cómo se ve una imagen, sino qué está contando y cómo sostiene una secuencia.
-        </p>
-      </article>
-
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-8">
-        <h3 class="text-2xl sm:text-3xl text-[#f6ad1e] mb-4" style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;">
-          Postproducción y acabado
-        </h3>
-        <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-          Trabajo el montaje, ritmo, color y ajuste fino de una pieza para convertir material disperso o imperfecto en una experiencia visual sólida.
-        </p>
-      </article>
-
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-8">
-        <h3 class="text-2xl sm:text-3xl text-[#f6ad1e] mb-4" style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;">
-          Creación audiovisual con IA
-        </h3>
-        <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-          Integro herramientas generativas dentro del proceso creativo para desarrollar escenas, visuales y secuencias que expanden lo que antes era posible producir.
-        </p>
-      </article>
-
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-8">
-        <h3 class="text-2xl sm:text-3xl text-[#f6ad1e] mb-4" style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;">
-          Workflows y sistemas
-        </h3>
-        <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-          Pienso procesos, conecto herramientas y organizo flujos para que la creación con IA no dependa del azar, sino de una lógica de trabajo que permita iterar, corregir y terminar mejor.
-        </p>
-      </article>
+      {copy.items.map((item) => (
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-8">
+          <h3
+            class="text-2xl sm:text-3xl text-[#f6ad1e] mb-4"
+            style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
+          >
+            {item.title}
+          </h3>
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
+            {item.body}
+          </p>
+        </article>
+      ))}
     </div>
   </div>
 </section>

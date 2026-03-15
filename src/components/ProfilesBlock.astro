@@ -1,6 +1,35 @@
 ---
 import { Image } from "astro:assets";
 import manuelPhoto from "../assets/manuel.webp";
+
+export interface Props {
+  lang?: "en" | "es";
+}
+
+const { lang = "en" } = Astro.props;
+
+const copy =
+  lang === "es"
+    ? {
+        role: "Filmmaker · Narrativa visual · IA",
+        badge: "Perfil",
+        p1: "Soy comunicador y filmmaker con experiencia en producción, postproducción y desarrollo de contenido audiovisual para marcas, proyectos y equipos de trabajo en distintos contextos.",
+        p2: "He construido mi recorrido entre productoras, canales, proyectos creativos y startups, moviéndome entre lo visual, lo técnico y lo estratégico, pero siempre con una base clara en el lenguaje audiovisual.",
+        p3: "A lo largo de ese proceso he aprendido a entender una pieza no solo desde la idea, sino también desde su estructura, su ritmo, su intención visual y su acabado final.",
+        p4: "Desde 2018 también empecé a acercarme al mundo tecnológico, aprendiendo JavaScript y trabajando en entornos de startups desde comunicación, marketing y contenido, mientras seguía desarrollando piezas audiovisuales.",
+        p5: "Esa mezcla me llevó a una evolución natural: integrar inteligencia artificial, herramientas generativas y lógica de sistemas dentro del proceso creativo y técnico. Hoy me enfoco en crear piezas donde conviven narrativa, dirección visual, postproducción y workflows con IA.",
+        tags: ["Filmmaker", "Narrativa visual", "Postproducción", "IA", "Workflows creativos"],
+      }
+    : {
+        role: "Filmmaker · Visual Storytelling · AI",
+        badge: "Profile",
+        p1: "I am a communicator and filmmaker with experience in production, post-production and audiovisual content development for brands, projects and teams across different contexts.",
+        p2: "I have built my path across production companies, TV channels, creative projects and startups, moving between the visual, the technical and the strategic, always grounded in audiovisual language.",
+        p3: "Throughout that process I learned to understand a piece not only from the initial idea, but also from its structure, rhythm, visual intention and final finish.",
+        p4: "Since 2018 I also started moving closer to the technology world, learning JavaScript and working in startup environments across communication, marketing and content, while continuing to develop audiovisual work.",
+        p5: "That mix led me to a natural evolution: integrating artificial intelligence, generative tools and systems thinking into the creative and technical process. Today I focus on creating pieces where storytelling, visual direction, post-production and AI workflows coexist.",
+        tags: ["Filmmaker", "Visual storytelling", "Post-production", "AI", "Creative workflows"],
+      };
 ---
 
 <section class="bg-black text-white py-24" id="perfiles">
@@ -36,41 +65,23 @@ import manuelPhoto from "../assets/manuel.webp";
                   class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight"
                   style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
                 >
-                  Filmmaker · Narrativa visual · IA
+                  {copy.role}
                 </h3>
               </div>
 
               <span class="badge hidden sm:inline-flex">
-                Perfil
+                {copy.badge}
               </span>
             </div>
 
-            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-              Soy comunicador y filmmaker con experiencia en producción, postproducción y desarrollo de contenido audiovisual para marcas, proyectos y equipos de trabajo en distintos contextos.
-            </p>
-
-            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-              He construido mi recorrido entre productoras, canales, proyectos creativos y startups, moviéndome entre lo visual, lo técnico y lo estratégico, pero siempre con una base clara en el lenguaje audiovisual.
-            </p>
-
-            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-              A lo largo de ese proceso he aprendido a entender una pieza no solo desde la idea, sino también desde su estructura, su ritmo, su intención visual y su acabado final.
-            </p>
-
-            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-              Desde 2018 también empecé a acercarme al mundo tecnológico, aprendiendo JavaScript y trabajando en entornos de startups desde comunicación, marketing y contenido, mientras seguía desarrollando piezas audiovisuales.
-            </p>
-
-            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-              Esa mezcla me llevó a una evolución natural: integrar inteligencia artificial, herramientas generativas y lógica de sistemas dentro del proceso creativo y técnico. Hoy me enfoco en crear piezas donde conviven narrativa, dirección visual, postproducción y workflows con IA.
-            </p>
+            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.p1}</p>
+            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.p2}</p>
+            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.p3}</p>
+            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.p4}</p>
+            <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.p5}</p>
 
             <div class="pt-2 flex flex-wrap gap-2">
-              <span class="tag">Filmmaker</span>
-              <span class="tag">Narrativa visual</span>
-              <span class="tag">Postproducción</span>
-              <span class="tag">IA</span>
-              <span class="tag">Workflows creativos</span>
+              {copy.tags.map((tag) => <span class="tag">{tag}</span>)}
             </div>
           </div>
         </div>

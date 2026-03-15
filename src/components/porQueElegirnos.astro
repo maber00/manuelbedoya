@@ -4,6 +4,75 @@ const vimeoVideos = [
   "1173360960",
   "1173360998"
 ];
+
+export interface Props {
+  lang?: "en" | "es";
+}
+
+const { lang = "en" } = Astro.props;
+
+const copy =
+  lang === "es"
+    ? {
+        title: "Cómo entiendo hoy el filmmaking con IA",
+        intro:
+          "No se trata solo de generar imágenes o clips. Se trata de entender el lenguaje audiovisual completo e integrar la IA dentro del proceso de forma útil, controlada y creativa.",
+        col1Title: "Lo que hago",
+        col1p1:
+          "Llevo años trabajando en producción audiovisual, realización, contenido y postproducción para marcas, proyectos y equipos en distintos contextos.",
+        col1p2:
+          "Ese recorrido me dio una mirada amplia: entiendo la idea, la ejecución, el montaje y la entrega. No solo pienso en cómo se ve una pieza, sino en qué está contando y qué necesita para funcionar de verdad.",
+        col1p3:
+          "Hoy pongo esa experiencia al servicio de piezas donde conviven narrativa, dirección visual, postproducción y nuevas herramientas generativas.",
+        col1p4:
+          "Más que producir por producir, me interesa desarrollar piezas con intención, identidad visual y acabado real.",
+        col1Tags: ["Narrativa", "Dirección visual", "Post", "Criterio"],
+        col2Title: "Cómo lo hago",
+        col2Lead:
+          "Trabajo combinando lenguaje audiovisual, sensibilidad narrativa y herramientas técnicas para que una idea pueda convertirse en una pieza sólida, no en una prueba a medias.",
+        col2Meta: "Video · Lentes · Color · Montaje · IA · Workflows",
+        col2p1:
+          "Para mí, un filmmaker con IA necesita criterio visual, noción de dramaturgia, comprensión técnica de video, lentes, color, ritmo y postproducción, pero también capacidad para dirigir sistemas, afinar instrucciones y reducir errores.",
+        col2p2:
+          "La IA no reemplaza la mirada. La amplifica. Pero para usarla bien hay que saber qué pedir, qué corregir, qué repetir, qué descartar y cómo convertir material generativo en una pieza terminada con intención real.",
+        col2p3:
+          "Ahí es donde se cruza mi perfil: entre el oficio audiovisual y la nueva lógica de creación generativa.",
+        col2Tags: ["Lenguaje audiovisual", "IA", "Corrección técnica", "Workflows"],
+        videoCaption:
+          "Piezas donde se cruzan narrativa, dirección visual, postproducción y exploración generativa.",
+        closingA: "No se trata solo de usar IA.",
+        closingB: " Se trata de saber contar, dirigir, corregir y terminar bien una pieza.",
+      }
+    : {
+        title: "How I understand AI filmmaking today",
+        intro:
+          "It is not just about generating images or clips. It is about understanding the full audiovisual language and integrating AI into the process in a useful, controlled and creative way.",
+        col1Title: "What I do",
+        col1p1:
+          "I have spent years working in audiovisual production, directing, content and post-production for brands, projects and teams across different contexts.",
+        col1p2:
+          "That path gave me a broad perspective: I understand the idea, the execution, the edit and the delivery. I do not only think about how a piece looks, but also what it is saying and what it needs in order to truly work.",
+        col1p3:
+          "Today I put that experience into pieces where storytelling, visual direction, post-production and new generative tools coexist.",
+        col1p4:
+          "More than producing for the sake of producing, I care about developing pieces with intention, visual identity and real finish.",
+        col1Tags: ["Storytelling", "Visual direction", "Post", "Judgment"],
+        col2Title: "How I do it",
+        col2Lead:
+          "I work by combining audiovisual language, narrative sensitivity and technical tools so that an idea can become a solid piece, not a half-finished test.",
+        col2Meta: "Video · Lenses · Color · Editing · AI · Workflows",
+        col2p1:
+          "To me, an AI filmmaker needs visual judgment, a sense of dramaturgy, technical understanding of video, lenses, color, rhythm and post-production, but also the ability to direct systems, refine instructions and reduce errors.",
+        col2p2:
+          "AI does not replace vision. It amplifies it. But to use it well, you need to know what to ask for, what to correct, what to repeat, what to discard and how to turn generative material into a finished piece with real intention.",
+        col2p3:
+          "That is where my profile sits: between audiovisual craft and the new logic of generative creation.",
+        col2Tags: ["Audiovisual language", "AI", "Technical correction", "Workflows"],
+        videoCaption:
+          "Pieces where storytelling, visual direction, post-production and generative exploration come together.",
+        closingA: "It is not only about using AI.",
+        closingB: " It is about knowing how to tell, direct, correct and finish a piece well.",
+      };
 ---
 
 <section class="bg-black text-white py-24" id="por-que">
@@ -13,11 +82,11 @@ const vimeoVideos = [
         class="text-4xl sm:text-6xl md:text-7xl text-[#f6ad1e] leading-none"
         style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
       >
-        Cómo entiendo hoy el filmmaking con IA
+        {copy.title}
       </h2>
 
       <p class="mt-6 text-base sm:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-        No se trata solo de generar imágenes o clips. Se trata de entender el lenguaje audiovisual completo e integrar la IA dentro del proceso de forma útil, controlada y creativa.
+        {copy.intro}
       </p>
     </div>
 
@@ -28,30 +97,16 @@ const vimeoVideos = [
             class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight"
             style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
           >
-            Lo que hago
+            {copy.col1Title}
           </h3>
 
-          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-            Llevo años trabajando en producción audiovisual, realización, contenido y postproducción para marcas, proyectos y equipos en distintos contextos.
-          </p>
-
-          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-            Ese recorrido me dio una mirada amplia: entiendo la idea, la ejecución, el montaje y la entrega. No solo pienso en cómo se ve una pieza, sino en qué está contando y qué necesita para funcionar de verdad.
-          </p>
-
-          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-            Hoy pongo esa experiencia al servicio de piezas donde conviven narrativa, dirección visual, postproducción y nuevas herramientas generativas.
-          </p>
-
-          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-            Más que producir por producir, me interesa desarrollar piezas con intención, identidad visual y acabado real.
-          </p>
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.col1p1}</p>
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.col1p2}</p>
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.col1p3}</p>
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.col1p4}</p>
 
           <div class="pt-2 flex flex-wrap gap-2">
-            <span class="tag">Narrativa</span>
-            <span class="tag">Dirección visual</span>
-            <span class="tag">Post</span>
-            <span class="tag">Criterio</span>
+            {copy.col1Tags.map((tag) => <span class="tag">{tag}</span>)}
           </div>
         </div>
       </article>
@@ -62,34 +117,23 @@ const vimeoVideos = [
             class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight"
             style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
           >
-            Cómo lo hago
+            {copy.col2Title}
           </h3>
 
           <p class="text-base sm:text-lg text-gray-100 leading-relaxed font-semibold">
-            Trabajo combinando lenguaje audiovisual, sensibilidad narrativa y herramientas técnicas para que una idea pueda convertirse en una pieza sólida, no en una prueba a medias.
+            {copy.col2Lead}
           </p>
 
           <p class="text-sm uppercase tracking-[0.18em] text-gray-400">
-            Video · Lentes · Color · Montaje · IA · Workflows
+            {copy.col2Meta}
           </p>
 
-          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-            Para mí, un filmmaker con IA necesita criterio visual, noción de dramaturgia, comprensión técnica de video, lentes, color, ritmo y postproducción, pero también capacidad para dirigir sistemas, afinar instrucciones y reducir errores.
-          </p>
-
-          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-            La IA no reemplaza la mirada. La amplifica. Pero para usarla bien hay que saber qué pedir, qué corregir, qué repetir, qué descartar y cómo convertir material generativo en una pieza terminada con intención real.
-          </p>
-
-          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">
-            Ahí es donde se cruza mi perfil: entre el oficio audiovisual y la nueva lógica de creación generativa.
-          </p>
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.col2p1}</p>
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.col2p2}</p>
+          <p class="text-base sm:text-lg text-gray-100 leading-relaxed">{copy.col2p3}</p>
 
           <div class="pt-2 flex flex-wrap gap-2">
-            <span class="tag">Lenguaje audiovisual</span>
-            <span class="tag">IA</span>
-            <span class="tag">Corrección técnica</span>
-            <span class="tag">Workflows</span>
+            {copy.col2Tags.map((tag) => <span class="tag">{tag}</span>)}
           </div>
         </div>
       </article>
@@ -112,7 +156,7 @@ const vimeoVideos = [
           </div>
 
           <p class="text-sm text-gray-300 mt-5 px-2 leading-relaxed">
-            Piezas donde se cruzan narrativa, dirección visual, postproducción y exploración generativa.
+            {copy.videoCaption}
           </p>
         </div>
       </article>
@@ -120,8 +164,8 @@ const vimeoVideos = [
 
     <div class="max-w-6xl mx-auto text-center mt-14">
       <p class="text-base sm:text-xl text-gray-200">
-        No se trata solo de usar IA.
-        <span class="text-[#f6ad1e] font-semibold"> Se trata de saber contar, dirigir, corregir y terminar bien una pieza.</span>
+        {copy.closingA}
+        <span class="text-[#f6ad1e] font-semibold">{copy.closingB}</span>
       </p>
     </div>
   </div>

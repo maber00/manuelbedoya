@@ -1,5 +1,4 @@
 ---
-
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
@@ -19,11 +18,20 @@ import iaThumb1 from '../assets/moneda.jpg';
 import iaThumb2 from '../assets/vive.jpg';
 import iaThumb3 from '../assets/ninos.jpg';
 
+export interface Props {
+  lang?: 'en' | 'es';
+}
+
+const { lang = 'en' } = Astro.props;
+
+type Category = 'commercials' | 'video' | 'ai-explorations';
+
 type Project = {
   id: number;
   thumbnail: ImageMetadata;
-  title: string;
-  tags: string[];
+  titleEs: string;
+  titleEn: string;
+  category: Category;
   videoUrl: string;
 };
 
@@ -31,90 +39,142 @@ const projects: Project[] = [
   {
     id: 1,
     thumbnail: aceiteGourmet,
-    title: "Comercial Aceite Gourmet - Alianza Team",
-    tags: ["Comerciales"],
+    titleEs: "Comercial Aceite Gourmet - Alianza Team",
+    titleEn: "Aceite Gourmet Commercial - Alianza Team",
+    category: "commercials",
     videoUrl: "https://www.youtube.com/watch?v=sTFBwbuUmOU"
   },
   {
     id: 2,
     thumbnail: boniceRotoscopia,
-    title: "ROTOSCOPIA – BONICE",
-    tags: ["Comerciales"],
+    titleEs: "Rotoscopia – Bonice",
+    titleEn: "Rotoscopy – Bonice",
+    category: "commercials",
     videoUrl: "https://www.youtube.com/watch?v=70fK2Odcw0A"
   },
   {
     id: 3,
     thumbnail: fondoLukafe,
-    title: "Comercial Lukafe - Casa Luker",
-    tags: ["Comerciales"],
+    titleEs: "Comercial Lukafe - Casa Luker",
+    titleEn: "Lukafe Commercial - Casa Luker",
+    category: "commercials",
     videoUrl: "https://www.youtube.com/watch?v=qTGbghkJBQM"
   },
   {
     id: 4,
     thumbnail: fondoBioexpert,
-    title: "Comercial Bioexpert Promo - Motion Graphics",
-    tags: ["Comerciales"],
+    titleEs: "Comercial Bioexpert Promo - Motion Graphics",
+    titleEn: "Bioexpert Promo Commercial - Motion Graphics",
+    category: "commercials",
     videoUrl: "https://www.youtube.com/watch?v=ICE1dRRTCoc"
   },
   {
     id: 5,
     thumbnail: reelVideo,
-    title: "Video Corporativo Render Producción Audiovisual",
-    tags: ["Video"],
+    titleEs: "Video Corporativo Render Producción Audiovisual",
+    titleEn: "Render Audiovisual Production Corporate Video",
+    category: "video",
     videoUrl: "https://www.youtube.com/watch?v=2w-ODG_VRsI"
   },
   {
     id: 6,
     thumbnail: fondoReelMotion,
-    title: "Reel Motion Graphics - Render Producción Audiovisual",
-    tags: ["Video"],
+    titleEs: "Reel Motion Graphics - Render Producción Audiovisual",
+    titleEn: "Motion Graphics Reel - Render Audiovisual Production",
+    category: "video",
     videoUrl: "https://www.youtube.com/watch?v=1NThrbQxYlc"
   },
   {
     id: 7,
     thumbnail: tomasAereas,
-    title: "Tomas aéreas Colombia y Ecuador",
-    tags: ["Video"],
+    titleEs: "Tomas aéreas Colombia y Ecuador",
+    titleEn: "Aerial Footage in Colombia and Ecuador",
+    category: "video",
     videoUrl: "https://www.youtube.com/watch?v=uLxfxWjWjMk"
   },
   {
     id: 8,
     thumbnail: fondoDetrasCamaras,
-    title: "Detrás de Cámaras Himno Quala México",
-    tags: ["Video"],
+    titleEs: "Detrás de Cámaras Himno Quala México",
+    titleEn: "Behind the Scenes – Quala Mexico Anthem",
+    category: "video",
     videoUrl: "https://www.youtube.com/watch?v=JDVYcn8NZGM&feature=emb_err_woyt"
   },
   {
     id: 9,
     thumbnail: fotoHimnos,
-    title: "Himno Quala México",
-    tags: ["Video"],
+    titleEs: "Himno Quala México",
+    titleEn: "Quala Mexico Anthem",
+    category: "video",
     videoUrl: "https://www.youtube.com/watch?v=mOV6Hawz2kw"
   },
   {
-  id: 10,
-  thumbnail: iaThumb1,
-  title: "Exploración IA 01",
-  tags: ["Exploraciones IA"],
-  videoUrl: "https://vimeo.com/1173401745"
-},
-{
-  id: 11,
-  thumbnail: iaThumb2,
-  title: "Exploración IA 02",
-  tags: ["Exploraciones IA"],
-  videoUrl: "https://youtu.be/D5KzgqVVZv4"
-},
-{
-  id: 12,
-  thumbnail: iaThumb3,
-  title: "Exploración IA 03",
-  tags: ["Exploraciones IA"],
-  videoUrl: "https://youtu.be/X6SvhNOBZ2E"
-}
+    id: 10,
+    thumbnail: iaThumb1,
+    titleEs: "Exploración IA 01",
+    titleEn: "AI Exploration 01",
+    category: "ai-explorations",
+    videoUrl: "https://vimeo.com/1173401745"
+  },
+  {
+    id: 11,
+    thumbnail: iaThumb2,
+    titleEs: "Exploración IA 02",
+    titleEn: "AI Exploration 02",
+    category: "ai-explorations",
+    videoUrl: "https://youtu.be/D5KzgqVVZv4"
+  },
+  {
+    id: 12,
+    thumbnail: iaThumb3,
+    titleEs: "Exploración IA 03",
+    titleEn: "AI Exploration 03",
+    category: "ai-explorations",
+    videoUrl: "https://youtu.be/X6SvhNOBZ2E"
+  }
 ];
 
-const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
+const copy =
+  lang === 'es'
+    ? {
+        title: "Portafolio",
+        intro: "Este portafolio reúne parte del trabajo que he desarrollado a lo largo de mi recorrido entre producción audiovisual, postproducción, dirección visual y exploración creativa con IA. Aquí conviven piezas comerciales, trabajos de realización, procesos visuales y exploraciones recientes donde la inteligencia artificial entra como herramienta para ampliar posibilidades narrativas, técnicas y estéticas.",
+        filters: [
+          { id: 'all', label: 'Todo' },
+          { id: 'commercials', label: 'Comerciales' },
+          { id: 'video', label: 'Video' },
+          { id: 'ai-explorations', label: 'Exploraciones IA' },
+        ],
+        viewProject: 'Ver proyecto',
+        closeModal: 'Cerrar modal',
+        invalidVideo: 'El link del video no es válido. Revisa la URL de YouTube o Vimeo.',
+      }
+    : {
+        title: "Portfolio",
+        intro: "This portfolio brings together part of the work I have developed across audiovisual production, post-production, visual direction and creative exploration with AI. It includes commercial pieces, directing work, visual processes and recent explorations where artificial intelligence expands narrative, technical and aesthetic possibilities.",
+        filters: [
+          { id: 'all', label: 'All' },
+          { id: 'commercials', label: 'Commercials' },
+          { id: 'video', label: 'Video' },
+          { id: 'ai-explorations', label: 'AI Explorations' },
+        ],
+        viewProject: 'View project',
+        closeModal: 'Close modal',
+        invalidVideo: 'The video link is not valid. Please check the YouTube or Vimeo URL.',
+      };
+
+const categoryLabelMap =
+  lang === 'es'
+    ? {
+        commercials: 'Comerciales',
+        video: 'Video',
+        'ai-explorations': 'Exploraciones IA',
+      }
+    : {
+        commercials: 'Commercials',
+        video: 'Video',
+        'ai-explorations': 'AI Explorations',
+      };
 ---
 
 <section id="portafolio">
@@ -124,58 +184,62 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
   >
     <div class="text-left">
       <h2 class="text-5xl md:text-7xl lg:text-[120px] font-normal mb-2 leading-none font-serif transition-all">
-        Portafolio
+        {copy.title}
       </h2>
 
       <div class="w-full md:w-800 h-0.5 bg-[#f6ad1e] scale-x-0 mb-2" id="underline"></div>
 
-     <p class="text-base md:text-xl mt-2 pb-10 md:pb-40 max-w-4xl leading-relaxed">
-  Este portafolio reúne parte del trabajo que he desarrollado a lo largo de mi recorrido entre producción audiovisual,
-  postproducción, dirección visual y exploración creativa con IA.
-
-  Aquí conviven piezas comerciales, trabajos de realización, procesos visuales y exploraciones recientes donde la inteligencia artificial entra como herramienta para ampliar posibilidades narrativas, técnicas y estéticas.
-</p>
+      <p class="text-base md:text-xl mt-2 pb-10 md:pb-40 max-w-4xl leading-relaxed">
+        {copy.intro}
+      </p>
+    </div>
 
     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mb-8 md:mb-12">
-      {tags.map((tag, index) => (
+      {copy.filters.map((filter, index) => (
         <button
           class:list={[
             "tag-filter px-3 md:px-6 py-2 rounded text-sm md:text-base transition-colors duration-300 hover:bg-[#f6ad1e] hover:text-black whitespace-nowrap overflow-hidden text-ellipsis",
             index === 0 && "active"
           ]}
-          data-filter={tag}
+          data-filter={filter.id}
         >
-          {tag}
+          {filter.label}
         </button>
       ))}
     </div>
 
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-3 px-0 md:px-[50px] lg:px-[100px]">
-      {projects.map((project) => (
-        <button
-          type="button"
-          class="project-item relative w-full md:h-[250px] h-[160px] cursor-pointer group overflow-hidden rounded-lg bg-neutral-900 block"
-          data-category={project.tags.join(',')}
-          data-title={project.title}
-          data-video-url={project.videoUrl}
-        >
-          <Image
-            src={project.thumbnail}
-            alt={project.title}
-            class="block w-full h-full object-cover"
-            widths={[500]}
-            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          />
+      {projects.map((project) => {
+        const title = lang === 'es' ? project.titleEs : project.titleEn;
+        const categoryLabel = categoryLabelMap[project.category];
 
-          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300"></div>
+        return (
+          <button
+            type="button"
+            class="project-item relative w-full md:h-[250px] h-[160px] cursor-pointer group overflow-hidden rounded-lg bg-neutral-900 block"
+            data-category={project.category}
+            data-title={title}
+            data-video-url={project.videoUrl}
+            data-category-label={categoryLabel}
+          >
+            <Image
+              src={project.thumbnail}
+              alt={title}
+              class="block w-full h-full object-cover"
+              widths={[500]}
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            />
 
-          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-white text-lg md:text-xl font-medium text-center px-2">
-              Ver Proyecto
-            </span>
-          </div>
-        </button>
-      ))}
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300"></div>
+
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-white text-lg md:text-xl font-medium text-center px-2">
+                {copy.viewProject}
+              </span>
+            </div>
+          </button>
+        );
+      })}
     </div>
 
     <div id="portfolioModal" class="modal fixed inset-0 z-50 hidden">
@@ -196,7 +260,7 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
         <button
           id="closeModalBtn"
           class="absolute top-4 right-4 md:top-8 md:right-8 text-white text-4xl leading-none"
-          aria-label="Cerrar modal"
+          aria-label={copy.closeModal}
         >
           &times;
         </button>
@@ -243,7 +307,7 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
   }
 </style>
 
-<script>
+<script define:vars={{ invalidVideo: copy.invalidVideo }}>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -273,14 +337,14 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
 
     filterButtons.forEach((button) => {
       button.addEventListener('click', () => {
-        const filterValue = button.getAttribute('data-filter') || 'Todo';
+        const filterValue = button.getAttribute('data-filter') || 'all';
 
         filterButtons.forEach((btn) => btn.classList.remove('active'));
         button.classList.add('active');
 
         projectItems.forEach((item) => {
-          const categories = item.getAttribute('data-category')?.split(',') || [];
-          const shouldShow = filterValue === 'Todo' || categories.includes(filterValue);
+          const category = item.getAttribute('data-category') || '';
+          const shouldShow = filterValue === 'all' || category === filterValue;
           item.classList.toggle('hidden', !shouldShow);
         });
       });
@@ -298,7 +362,7 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
         item.addEventListener('click', () => {
           const title = item.getAttribute('data-title') || '';
           const videoUrl = item.getAttribute('data-video-url') || '';
-          const categories = item.getAttribute('data-category') || '';
+          const categoryLabel = item.getAttribute('data-category-label') || '';
 
           modal.classList.remove('hidden');
           document.body.style.overflow = 'hidden';
@@ -334,13 +398,13 @@ const tags = ["Todo", "Comerciales", "Video", "Video hechos IA"];
           } else {
             carouselContainer.innerHTML = `
               <div class="w-full h-full flex items-center justify-center text-center p-6">
-                <p class="text-white text-lg">El link del video no es válido. Revisa la URL de YouTube o Vimeo.</p>
+                <p class="text-white text-lg">${invalidVideo}</p>
               </div>
             `;
           }
 
           modalTitle.textContent = title;
-          modalTags.textContent = categories;
+          modalTags.textContent = categoryLabel;
         });
       });
 

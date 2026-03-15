@@ -1,5 +1,39 @@
 ---
 const currentYear = new Date().getFullYear();
+
+export interface Props {
+  lang?: "en" | "es";
+}
+
+const { lang = "en" } = Astro.props;
+
+const isSpanish = lang === "es";
+const basePath = isSpanish ? "/es" : "";
+
+const copy =
+  isSpanish
+    ? {
+        description:
+          "Filmmaker IA especializado en narrativa visual, postproducción y workflows generativos para piezas audiovisuales contemporáneas.",
+        contact: "Contacto",
+        navigation: "Navegación",
+        about: "Sobre mí",
+        approach: "Enfoque",
+        portfolio: "Portafolio",
+        contactLink: "Contacto",
+        rights: "Todos los derechos reservados.",
+      }
+    : {
+        description:
+          "AI Filmmaker focused on visual storytelling, post-production and generative workflows for contemporary audiovisual pieces.",
+        contact: "Contact",
+        navigation: "Navigation",
+        about: "About",
+        approach: "Approach",
+        portfolio: "Portfolio",
+        contactLink: "Contact",
+        rights: "All rights reserved.",
+      };
 ---
 
 <footer id="contacto" class="bg-black text-white border-t border-white/10">
@@ -13,13 +47,13 @@ const currentYear = new Date().getFullYear();
           Manuel Bedoya
         </h3>
         <p class="mt-3 text-sm sm:text-base text-gray-300 leading-relaxed max-w-md">
-          Filmmaker IA especializado en narrativa visual, postproducción y workflows generativos para piezas audiovisuales contemporáneas.
+          {copy.description}
         </p>
       </div>
 
       <div>
         <p class="text-sm uppercase tracking-[0.18em] text-gray-400 mb-3">
-          Contacto
+          {copy.contact}
         </p>
 
         <div class="flex flex-col gap-2 text-sm sm:text-base">
@@ -43,21 +77,21 @@ const currentYear = new Date().getFullYear();
 
       <div>
         <p class="text-sm uppercase tracking-[0.18em] text-gray-400 mb-3">
-          Navegación
+          {copy.navigation}
         </p>
 
         <div class="flex flex-col gap-2 text-sm sm:text-base">
-          <a href="/#perfiles" class="text-white hover:text-[#f6ad1e] transition-colors">Sobre mí</a>
-          <a href="/#por-que" class="text-white hover:text-[#f6ad1e] transition-colors">Enfoque</a>
-          <a href="/#portafolio" class="text-white hover:text-[#f6ad1e] transition-colors">Portafolio</a>
-          <a href="/contacto" class="text-white hover:text-[#f6ad1e] transition-colors">Contacto</a>
+          <a href={`${basePath}/#perfiles`} class="text-white hover:text-[#f6ad1e] transition-colors">{copy.about}</a>
+          <a href={`${basePath}/#por-que`} class="text-white hover:text-[#f6ad1e] transition-colors">{copy.approach}</a>
+          <a href={`${basePath}/#portafolio`} class="text-white hover:text-[#f6ad1e] transition-colors">{copy.portfolio}</a>
+          <a href={`${basePath}/#contacto`} class="text-white hover:text-[#f6ad1e] transition-colors">{copy.contactLink}</a>
         </div>
       </div>
     </div>
 
     <div class="mt-8 pt-6 border-t border-white/10 text-center">
       <p class="text-sm text-gray-400">
-        © {currentYear} Manuel Bedoya. Todos los derechos reservados.
+        © {currentYear} Manuel Bedoya. {copy.rights}
       </p>
     </div>
   </div>

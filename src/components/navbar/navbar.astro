@@ -2,15 +2,34 @@
 import Container from "../container.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
+export interface Props {
+  lang?: 'en' | 'es';
+}
 
-// Menú actualizado (ajusta anchors según tus IDs reales)
-const menuitems = [
-  { title: "INICIO", path: "/" },
-  { title: "QUIÉN SOY", path: "#perfiles" },      // ✅ antes estaba /#por-que-render
-  { title: "LO QUE HAGO", path: "/#por-que" },
-  { title: "PORTAFOLIO", path: "/#portafolio" },
-  { title: "CONTACTO", path: "/#contacto" },
-];
+const { lang = 'en' } = Astro.props;
+
+const isSpanish = lang === 'es';
+
+const menuitems = isSpanish
+  ? [
+      { title: "INICIO", path: "/es/#inicio" },
+      { title: "SOBRE MÍ", path: "/es/#perfiles" },
+      { title: "LO QUE HAGO", path: "/es/#por-que" },
+      { title: "PORTAFOLIO", path: "/es/#portafolio" },
+      { title: "CONTACTO", path: "/es/#contacto" },
+    ]
+  : [
+      { title: "HOME", path: "/#inicio" },
+      { title: "ABOUT", path: "/#perfiles" },
+      { title: "WHAT I DO", path: "/#por-que" },
+      { title: "PORTFOLIO", path: "/#portafolio" },
+      { title: "CONTACT", path: "/#contacto" },
+    ];
+
+const switchHref = isSpanish ? "/" : "/es/";
+const switchLabel = isSpanish ? "Switch to English" : "Cambiar a español";
+const switchText = isSpanish ? "EN" : "ES";
+const switchFlag = isSpanish ? "🇬🇧" : "🇪🇸";
 ---
 
 <Container>
@@ -20,8 +39,6 @@ const menuitems = [
   >
     <div class="flex flex-col lg:flex-row justify-between items-center py-3 px-4 max-w-7xl mx-auto">
       <div class="flex w-full lg:w-auto items-center justify-between mb-4 lg:mb-0">
-        
-
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 menu-icon text-white" />
         </div>
@@ -29,18 +46,29 @@ const menuitems = [
 
       <Astronav>
         <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-          <ul class="flex flex-col lg:flex-row lg:gap-3">
-            {menuitems.map((item) => (
-              <li>
-                <a
-                  href={item.path}
-                  class="flex px-3 py-2 items-center text-white hover:text-gray-300 transition-colors nav-link"
-                >
-                  <span>{item.title}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div class="flex flex-col lg:flex-row lg:items-center lg:gap-3">
+            <ul class="flex flex-col lg:flex-row lg:gap-3">
+              {menuitems.map((item) => (
+                <li>
+                  <a
+                    href={item.path}
+                    class="flex px-3 py-2 items-center text-white hover:text-gray-300 transition-colors nav-link"
+                  >
+                    <span>{item.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={switchHref}
+              aria-label={switchLabel}
+              class="ml-0 lg:ml-3 mt-2 lg:mt-0 inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-3 py-2 text-sm text-white transition hover:border-[#f6ad1e] hover:text-[#f6ad1e]"
+            >
+              <span aria-hidden="true">{switchFlag}</span>
+              <span>{switchText}</span>
+            </a>
+          </div>
         </MenuItems>
       </Astronav>
     </div>
@@ -56,7 +84,6 @@ const menuitems = [
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("#header");
-    
     const navLinks = document.querySelectorAll(".nav-link");
     const menuIcon = document.querySelector(".menu-icon");
     let lastScroll = 0;
@@ -65,8 +92,6 @@ const menuitems = [
       header?.classList.remove("bg-black", "shadow-md", "-translate-y-full", "header-scrolled");
       header?.classList.add("bg-transparent", "translate-y-0");
 
-      // Mantén logo blanco (si quieres alternar, descomenta abajo)
-      
       menuIcon?.classList.add("text-white");
       menuIcon?.classList.remove("text-black");
 
@@ -79,8 +104,6 @@ const menuitems = [
     function setScrolledUpState() {
       header?.classList.remove("-translate-y-full", "bg-transparent");
       header?.classList.add("translate-y-0", "bg-black", "shadow-md", "header-scrolled");
-
-      // En fondo negro, logo blanco funciona perfecto
 
       menuIcon?.classList.add("text-white");
       menuIcon?.classList.remove("text-black");
@@ -97,11 +120,9 @@ const menuitems = [
       if (currentScroll <= 0) {
         setTopState();
       } else if (currentScroll > lastScroll) {
-        // bajando
         header?.classList.add("-translate-y-full");
         header?.classList.remove("translate-y-0");
       } else {
-        // subiendo
         setScrolledUpState();
       }
 

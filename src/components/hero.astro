@@ -1,7 +1,36 @@
 ---
+export interface Props {
+  lang?: 'en' | 'es';
+}
+
+const { lang = 'en' } = Astro.props;
+
+const copy = lang === 'es'
+  ? {
+      eyebrow: 'Manuel Bedoya',
+      title: 'Filmmaker IA',
+      lead:
+        'Narrativa visual, postproducción y workflows generativos para desarrollar piezas audiovisuales con criterio, intención y acabado real.',
+      body:
+        'Vengo de la producción y la postproducción audiovisual. Hoy integro dirección visual, lenguaje cinematográfico y herramientas de inteligencia artificial para crear piezas que combinan exploración visual y resolución técnica.',
+      ctaPrimary: 'Ver portafolio',
+      ctaSecondary: 'Sobre mí',
+      ctaContact: 'Contacto',
+    }
+  : {
+      eyebrow: 'Manuel Bedoya',
+      title: 'AI Filmmaker',
+      lead:
+        'Visual storytelling, post-production and generative workflows to build audiovisual pieces with judgment, intention and real finish.',
+      body:
+        'My background comes from audiovisual production and post-production. Today I combine visual direction, cinematic language and artificial intelligence tools to create pieces that bring together visual exploration and technical execution.',
+      ctaPrimary: 'View Portfolio',
+      ctaSecondary: 'About Me',
+      ctaContact: 'Contact',
+    };
 ---
+
 <section id="inicio" class="hero-container relative w-full h-screen overflow-hidden bg-black flex items-end">
-  <!-- Video Background -->
   <div class="absolute inset-0 w-full h-full z-0" id="videoWrapper">
     <div class="absolute inset-0 w-full h-full video-container overflow-hidden">
       <iframe
@@ -15,32 +44,28 @@
     </div>
   </div>
 
-  <!-- Overlay -->
   <div class="absolute inset-0 bg-black/55 z-10"></div>
 
-  <!-- Content -->
   <div class="relative z-20 w-full">
     <div class="px-6 sm:px-12 md:px-16 lg:px-24 pb-16 md:pb-24">
       <div class="max-w-5xl text-white">
-        <p
-          class="text-sm sm:text-base uppercase tracking-[0.22em] text-white/70 mb-4"
-        >
-          Manuel Bedoya
+        <p class="text-sm sm:text-base uppercase tracking-[0.22em] text-white/70 mb-4">
+          {copy.eyebrow}
         </p>
 
         <h1
           class="text-4xl sm:text-5xl md:text-7xl lg:text-[88px] leading-[0.95] text-[#f6ad1e]"
           style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
         >
-          Filmmaker IA
+          {copy.title}
         </h1>
 
         <p class="mt-5 text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed">
-          Narrativa visual, postproducción y workflows generativos para desarrollar piezas audiovisuales con criterio, intención y acabado real.
+          {copy.lead}
         </p>
 
         <p class="mt-6 text-sm sm:text-base md:text-lg text-white/75 max-w-3xl leading-relaxed">
-          Vengo de la producción y la postproducción audiovisual. Hoy integro dirección visual, lenguaje cinematográfico y herramientas de inteligencia artificial para crear piezas que combinan exploración visual y resolución técnica.
+          {copy.body}
         </p>
 
         <div class="mt-8 flex flex-wrap gap-3">
@@ -48,27 +73,27 @@
             href="#portafolio"
             class="inline-flex items-center rounded-full bg-[#f6ad1e] px-5 py-3 text-sm sm:text-base font-medium text-black transition hover:opacity-90"
           >
-            Ver portafolio
+            {copy.ctaPrimary}
           </a>
 
           <a
             href="#perfiles"
             class="inline-flex items-center rounded-full border border-white/20 px-5 py-3 text-sm sm:text-base text-white transition hover:border-[#f6ad1e] hover:text-[#f6ad1e]"
           >
-            Sobre mí
+            {copy.ctaSecondary}
           </a>
 
           <a
-            href="/contacto"
+            href="#contacto"
             class="inline-flex items-center rounded-full border border-white/20 px-5 py-3 text-sm sm:text-base text-white transition hover:border-[#f6ad1e] hover:text-[#f6ad1e]"
           >
-            Contacto
+            {copy.ctaContact}
           </a>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
   .hero-container {
