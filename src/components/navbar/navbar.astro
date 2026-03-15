@@ -2,16 +2,14 @@
 import Container from "../container.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
-import logoWhite from "../../assets/mrHyde.svg";
-import logoDark from "../../assets/mrHyde.svg"; // ✅ si no tienes versión dark, usa la misma. Cambia por otro archivo si existe.
 
 // Menú actualizado (ajusta anchors según tus IDs reales)
 const menuitems = [
   { title: "INICIO", path: "/" },
-  { title: "QUIÉN SOY", path: "/#por-que" },      // ✅ antes estaba /#por-que-render
-  { title: "LO QUE HAGO", path: "/#servicios" },
+  { title: "QUIÉN SOY", path: "#perfiles" },      // ✅ antes estaba /#por-que-render
+  { title: "LO QUE HAGO", path: "/#por-que" },
   { title: "PORTAFOLIO", path: "/#portafolio" },
-  { title: "CONTACTO", path: "/contacto" },
+  { title: "CONTACTO", path: "/#contacto" },
 ];
 ---
 
@@ -58,8 +56,7 @@ const menuitems = [
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("#header");
-    const logoWhiteEl = document.querySelector("#logo-white");
-    const logoDarkEl = document.querySelector("#logo-dark");
+    
     const navLinks = document.querySelectorAll(".nav-link");
     const menuIcon = document.querySelector(".menu-icon");
     let lastScroll = 0;
@@ -69,9 +66,7 @@ const menuitems = [
       header?.classList.add("bg-transparent", "translate-y-0");
 
       // Mantén logo blanco (si quieres alternar, descomenta abajo)
-      logoWhiteEl?.classList.remove("hidden");
-      logoDarkEl?.classList.add("hidden");
-
+      
       menuIcon?.classList.add("text-white");
       menuIcon?.classList.remove("text-black");
 
@@ -86,8 +81,6 @@ const menuitems = [
       header?.classList.add("translate-y-0", "bg-black", "shadow-md", "header-scrolled");
 
       // En fondo negro, logo blanco funciona perfecto
-      logoWhiteEl?.classList.remove("hidden");
-      logoDarkEl?.classList.add("hidden");
 
       menuIcon?.classList.add("text-white");
       menuIcon?.classList.remove("text-black");
