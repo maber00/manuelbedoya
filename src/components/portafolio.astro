@@ -19,93 +19,6 @@ import iaThumb1 from '../assets/moneda.jpg';
 import iaThumb2 from '../assets/vive.jpg';
 import iaThumb3 from '../assets/ninos.jpg';
 
-const projects = [
-  {
-    id: 1,
-    thumbnail: aceiteGourmet,
-    title: "Comercial Aceite Gourmet - Alianza Team",
-    tags: ["Comerciales", "Commercials"],
-    videoUrl: "https://www.youtube.com/watch?v=sTFBwbuUmOU"
-  },
-  {
-    id: 2,
-    thumbnail: boniceRotoscopia,
-    title: "ROTOSCOPIA – BONICE",
-    tags: ["Comerciales", "Commercials"],
-    videoUrl: "https://www.youtube.com/watch?v=70fK2Odcw0A"
-  },
-  {
-    id: 3,
-    thumbnail: fondoLukafe,
-    title: "Comercial Lukafe - Casa Luker",
-    tags: ["Comerciales", "Commercials"],
-    videoUrl: "https://www.youtube.com/watch?v=qTGbghkJBQM"
-  },
-  {
-    id: 4,
-    thumbnail: fondoBioexpert,
-    title: "Comercial Bioexpert Promo - Motion Graphics",
-    tags: ["Comerciales", "Commercials"],
-    videoUrl: "https://www.youtube.com/watch?v=ICE1dRRTCoc"
-  },
-  {
-    id: 5,
-    thumbnail: reelVideo,
-    title: "Video Corporativo Render Producción Audiovisual",
-    tags: ["Video"],
-    videoUrl: "https://www.youtube.com/watch?v=2w-ODG_VRsI"
-  },
-  {
-    id: 6,
-    thumbnail: fondoReelMotion,
-    title: "Reel Motion Graphics - Render Producción Audiovisual",
-    tags: ["Video"],
-    videoUrl: "https://www.youtube.com/watch?v=1NThrbQxYlc"
-  },
-  {
-    id: 7,
-    thumbnail: tomasAereas,
-    title: "Tomas aéreas Colombia y Ecuador",
-    tags: ["Video"],
-    videoUrl: "https://www.youtube.com/watch?v=uLxfxWjWjMk"
-  },
-  {
-    id: 8,
-    thumbnail: fondoDetrasCamaras,
-    title: "Detrás de Cámaras Himno Quala México",
-    tags: ["Video"],
-    videoUrl: "https://www.youtube.com/watch?v=JDVYcn8NZGM&feature=emb_err_woyt"
-  },
-  {
-    id: 9,
-    thumbnail: fotoHimnos,
-    title: "Himno Quala México",
-    tags: ["Video"],
-    videoUrl: "https://www.youtube.com/watch?v=mOV6Hawz2kw"
-  },
-  {
-    id: 10,
-    thumbnail: iaThumb1,
-    title: "Exploración IA 01",
-    tags: ["Dirección Creativa con IA", "AI Explorations"],
-    videoUrl: "https://vimeo.com/1173401745"
-  },
-  {
-    id: 11,
-    thumbnail: iaThumb2,
-    title: "Exploración IA 02",
-    tags: ["Dirección Creativa con IA", "AI Explorations"],
-    videoUrl: "https://youtu.be/D5KzgqVVZv4"
-  },
-  {
-    id: 12,
-    thumbnail: iaThumb3,
-    title: "Exploración IA 03",
-    tags: ["Dirección Creativa con IA", "AI Explorations"],
-    videoUrl: "https://youtu.be/X6SvhNOBZ2E"
-  },
-];
-
 const copy =
   lang === 'es'
     ? {
@@ -135,9 +48,106 @@ const copy =
         invalidVideo: 'The video link is not valid. Please check the YouTube or Vimeo URL.',
       };
 
-const tags = copy.filters.map(filter => filter.label);
+const projects = [
+  {
+    id: 1,
+    thumbnail: aceiteGourmet,
+    title: "Comercial Aceite Gourmet - Alianza Team",
+    category: "commercials",
+    categoryLabel: lang === 'es' ? "Comerciales" : "Commercials",
+    videoUrl: "https://www.youtube.com/watch?v=sTFBwbuUmOU"
+  },
+  {
+    id: 2,
+    thumbnail: boniceRotoscopia,
+    title: "ROTOSCOPIA – BONICE",
+    category: "commercials",
+    categoryLabel: lang === 'es' ? "Comerciales" : "Commercials",
+    videoUrl: "https://www.youtube.com/watch?v=70fK2Odcw0A"
+  },
+  {
+    id: 3,
+    thumbnail: fondoLukafe,
+    title: "Comercial Lukafe - Casa Luker",
+    category: "commercials",
+    categoryLabel: lang === 'es' ? "Comerciales" : "Commercials",
+    videoUrl: "https://www.youtube.com/watch?v=qTGbghkJBQM"
+  },
+  {
+    id: 4,
+    thumbnail: fondoBioexpert,
+    title: "Comercial Bioexpert Promo - Motion Graphics",
+    category: "commercials",
+    categoryLabel: lang === 'es' ? "Comerciales" : "Commercials",
+    videoUrl: "https://www.youtube.com/watch?v=ICE1dRRTCoc"
+  },
+  {
+    id: 5,
+    thumbnail: reelVideo,
+    title: "Video Corporativo Render Producción Audiovisual",
+    category: "video",
+    categoryLabel: "Video",
+    videoUrl: "https://www.youtube.com/watch?v=2w-ODG_VRsI"
+  },
+  {
+    id: 6,
+    thumbnail: fondoReelMotion,
+    title: "Reel Motion Graphics - Render Producción Audiovisual",
+    category: "video",
+    categoryLabel: "Video",
+    videoUrl: "https://www.youtube.com/watch?v=1NThrbQxYlc"
+  },
+  {
+    id: 7,
+    thumbnail: tomasAereas,
+    title: "Tomas aéreas Colombia y Ecuador",
+    category: "video",
+    categoryLabel: "Video",
+    videoUrl: "https://www.youtube.com/watch?v=uLxfxWjWjMk"
+  },
+  {
+    id: 8,
+    thumbnail: fondoDetrasCamaras,
+    title: "Detrás de Cámaras Himno Quala México",
+    category: "video",
+    categoryLabel: "Video",
+    videoUrl: "https://www.youtube.com/watch?v=JDVYcn8NZGM&feature=emb_err_woyt"
+  },
+  {
+    id: 9,
+    thumbnail: fotoHimnos,
+    title: "Himno Quala México",
+    category: "video",
+    categoryLabel: "Video",
+    videoUrl: "https://www.youtube.com/watch?v=mOV6Hawz2kw"
+  },
+  {
+    id: 10,
+    thumbnail: iaThumb1,
+    title: "Exploración IA 01",
+    category: "ai-explorations",
+    categoryLabel: lang === 'es' ? "Dirección Creativa con IA" : "AI Creative Direction",
+    videoUrl: "https://vimeo.com/1173401745"
+  },
+  {
+    id: 11,
+    thumbnail: iaThumb2,
+    title: "Exploración IA 02",
+    category: "ai-explorations",
+    categoryLabel: lang === 'es' ? "Dirección Creativa con IA" : "AI Creative Direction",
+    videoUrl: "https://youtu.be/D5KzgqVVZv4"
+  },
+  {
+    id: 12,
+    thumbnail: iaThumb3,
+    title: "Exploración IA 03",
+    category: "ai-explorations",
+    categoryLabel: lang === 'es' ? "Dirección Creativa con IA" : "AI Creative Direction",
+    videoUrl: "https://youtu.be/X6SvhNOBZ2E"
+  },
+];
 ---
-<section id="portafolio">
+<section id={id ?? "portafolio"}>
   <div
     class="portafolio-container min-h-screen px-4 md:px-8 lg:px-20 py-20 md:py-40 bg-black text-white"
     id="portfolio-section"
@@ -153,27 +163,29 @@ const tags = copy.filters.map(filter => filter.label);
         {copy.intro}
       </p>
     </div>
+
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 mb-8 md:mb-12 max-w-5xl mx-auto">
-  {tags.map(tag => (
-    <button 
-      type="button"
-      class="tag-filter flex items-center justify-center text-center px-4 md:px-6 py-3 rounded text-sm md:text-base transition-colors duration-300 hover:bg-[#f6ad1e] hover:text-black min-h-[52px]"
-      data-filter={tag}
-    >
-      {tag}
-    </button>
-  ))}
-</div>
+      {copy.filters.map((filter) => (
+        <button
+          type="button"
+          class="tag-filter flex items-center justify-center text-center px-4 md:px-6 py-3 rounded text-sm md:text-base transition-colors duration-300 hover:bg-[#f6ad1e] hover:text-black min-h-[52px]"
+          data-filter={filter.id}
+        >
+          {filter.label}
+        </button>
+      ))}
+    </div>
 
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-2 px-0 md:px-[50px] lg:px-[100px]">
       {projects.map(project => (
-        <div 
+        <div
           class="project-item relative md:h-[250px] h-[150px] cursor-pointer group"
-          data-category={project.tags.join(',')}
+          data-category={project.category}
           data-title={project.title}
           data-video-url={project.videoUrl}
+          data-category-label={project.categoryLabel}
         >
-          <Image 
+          <Image
             src={project.thumbnail}
             alt={project.title}
             class="w-full h-full object-cover"
@@ -182,7 +194,7 @@ const tags = copy.filters.map(filter => filter.label);
           />
           <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300">
             <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span class="text-white text-lg md:text-xl font-medium">Ver Proyecto</span>
+              <span class="text-white text-lg md:text-xl font-medium">{copy.viewProject}</span>
             </div>
           </div>
         </div>
@@ -191,11 +203,12 @@ const tags = copy.filters.map(filter => filter.label);
 
     <div id="portfolioModal" class="modal fixed inset-0 z-50 hidden">
       <div id="modalOverlay" class="absolute inset-0 bg-black/90"></div>
-      <div class="flex flex-col lg:flex-row h-full items-center justify-center p-4 md:p-8 lg:p-[100px] gap-4 lg:gap-8 overflow-y-auto">
+
+      <div class="relative flex flex-col lg:flex-row min-h-full items-center justify-center p-4 md:p-8 lg:p-[100px] gap-4 lg:gap-8 overflow-y-auto">
         <div class="w-full lg:w-2/3 aspect-video bg-black relative">
           <div id="carouselContainer" class="relative w-full h-full"></div>
         </div>
-        
+
         <div class="w-full lg:w-1/3 text-white">
           <h2 class="text-2xl md:text-3xl font-bold mb-4" id="modalTitle"></h2>
           <div class="flex flex-wrap gap-2 mb-4">
@@ -203,7 +216,14 @@ const tags = copy.filters.map(filter => filter.label);
           </div>
         </div>
 
-        <button id="closeModalBtn" type="button" class="absolute top-4 right-4 md:top-8 md:right-8 text-white text-4xl">&times;</button>
+        <button
+          id="closeModalBtn"
+          type="button"
+          aria-label={copy.closeModal}
+          class="absolute top-4 right-4 md:top-8 md:right-8 text-white text-4xl leading-none"
+        >
+          &times;
+        </button>
       </div>
     </div>
   </div>
@@ -214,32 +234,32 @@ const tags = copy.filters.map(filter => filter.label);
     background-color: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease-in-out;
   }
-    
-  .tag-filter:hover, 
+
+  .tag-filter:hover,
   .tag-filter.active {
     background-color: #f6ad1e;
     color: #000;
     transform: translateY(-2px);
   }
-  
+
   #underline {
     transform-origin: left;
   }
-  
+
   .project-item {
     visibility: visible;
     opacity: 1;
   }
-  
+
   .modal {
     transition: opacity 0.3s ease-in-out;
   }
-  
+
   .modal.hidden {
     opacity: 0;
     pointer-events: none;
   }
-  
+
   .modal:not(.hidden) {
     opacity: 1;
   }
@@ -254,9 +274,9 @@ const tags = copy.filters.map(filter => filter.label);
 <script>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
-    
+
   gsap.registerPlugin(ScrollTrigger);
-    
+
   document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('portfolioModal');
     const modalOverlay = document.getElementById('modalOverlay');
@@ -279,19 +299,21 @@ const tags = copy.filters.map(filter => filter.label);
       return match ? match[1] : null;
     }
 
-    filterButtons.forEach(button => {
+    filterButtons.forEach((button, index) => {
       button.addEventListener('click', () => {
-        const filterValue = button.getAttribute('data-filter') || 'Todo';
+        const filterValue = button.getAttribute('data-filter') || 'all';
 
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-      
+
         projectItems.forEach(item => {
-          const categories = item.getAttribute('data-category')?.split(',').map(v => v.trim()) || [];
-          const shouldShow = filterValue === 'Todo' || categories.includes(filterValue);
+          const category = item.getAttribute('data-category') || '';
+          const shouldShow = filterValue === 'all' || category === filterValue;
           item.classList.toggle('hidden', !shouldShow);
         });
       });
+
+      if (index === 0) button.classList.add('active');
     });
 
     if (modal && closeBtn && carouselContainer && modalTitle && modalTags) {
@@ -299,7 +321,7 @@ const tags = copy.filters.map(filter => filter.label);
         item.addEventListener('click', () => {
           const title = item.getAttribute('data-title') || '';
           const videoUrl = item.getAttribute('data-video-url') || '';
-          const categories = item.getAttribute('data-category') || '';
+          const categoryLabel = item.getAttribute('data-category-label') || '';
 
           modal.classList.remove('hidden');
           document.body.style.overflow = 'hidden';
@@ -311,10 +333,11 @@ const tags = copy.filters.map(filter => filter.label);
           if (youtubeId) {
             carouselContainer.innerHTML = `
               <div class="video-wrapper w-full h-full">
-                <iframe 
-                  class="w-full h-full" 
-                  src="https://www.youtube.com/embed/${youtubeId}" 
-                  frameborder="0" 
+                <iframe
+                  class="w-full h-full"
+                  src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
                   allowfullscreen
                 ></iframe>
               </div>
@@ -322,19 +345,25 @@ const tags = copy.filters.map(filter => filter.label);
           } else if (vimeoId) {
             carouselContainer.innerHTML = `
               <div class="video-wrapper w-full h-full">
-                <iframe 
-                  class="w-full h-full" 
-                  src="https://player.vimeo.com/video/${vimeoId}" 
+                <iframe
+                  class="w-full h-full"
+                  src="https://player.vimeo.com/video/${vimeoId}?autoplay=1"
                   frameborder="0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowfullscreen
                 ></iframe>
               </div>
             `;
+          } else {
+            carouselContainer.innerHTML = `
+              <div class="w-full h-full flex items-center justify-center text-white text-center px-4">
+                Video no válido
+              </div>
+            `;
           }
 
           modalTitle.textContent = title;
-          modalTags.textContent = categories;
+          modalTags.textContent = categoryLabel;
         });
       });
 
