@@ -30,6 +30,9 @@ const switchHref = isSpanish ? "/" : "/es/";
 const switchLabel = isSpanish ? "Switch to English" : "Cambiar a español";
 const switchText = isSpanish ? "EN" : "ES";
 const switchFlag = isSpanish ? "🇬🇧" : "🇪🇸";
+
+const menuOpenLabel = isSpanish ? "Abrir menú" : "Open menu";
+const menuCloseLabel = isSpanish ? "Cerrar menú" : "Close menu";
 ---
 
 <Container>
@@ -45,7 +48,7 @@ const switchFlag = isSpanish ? "🇬🇧" : "🇪🇸";
       </div>
 
       <Astronav>
-        <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+        <MenuItems id="primary-menu" class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
           <div class="flex flex-col lg:flex-row lg:items-center lg:gap-3">
             <ul class="flex flex-col lg:flex-row lg:gap-3">
               {menuitems.map((item) => (
@@ -80,6 +83,36 @@ const switchFlag = isSpanish ? "🇬🇧" : "🇪🇸";
     transition: color 0.3s ease;
   }
 </style>
+
+<script define:vars={{ menuOpenLabel, menuCloseLabel }}>
+  // Sincroniza el estado accesible del botón del menú móvil con su apertura real.
+  // astro-navbar clona el botón para limpiar listeners, pero no clona el <nav> del
+  // menú, así que observamos el menú (estable) y reescribimos los atributos del
+  // botón vigente en cada cambio.
+  const syncMenuA11y = () => {
+    const menu = document.getElementById("primary-menu");
+    if (!menu) return;
+
+    const apply = () => {
+      const button = document.getElementById("astronav-menu");
+      if (!button) return;
+      const isOpen = !menu.classList.contains("hidden");
+      button.setAttribute("aria-controls", "primary-menu");
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      button.setAttribute("aria-label", isOpen ? menuCloseLabel : menuOpenLabel);
+    };
+
+    apply();
+    new MutationObserver(apply).observe(menu, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  };
+
+  ["DOMContentLoaded", "astro:after-swap"].forEach((event) =>
+    document.addEventListener(event, syncMenuA11y)
+  );
+</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {

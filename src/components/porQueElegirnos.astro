@@ -40,6 +40,7 @@ const copy =
         col2Tags: ["Lenguaje audiovisual", "IA", "Corrección técnica", "Workflows"],
         videoCaption:
           "Piezas donde se cruzan narrativa, dirección visual, postproducción y exploración generativa.",
+        videoTitle: "Video de muestra del trabajo audiovisual",
         closingA: "No se trata solo de usar IA.",
         closingB: " Se trata de saber contar, dirigir, corregir y terminar bien una pieza.",
       }
@@ -70,6 +71,7 @@ const copy =
         col2Tags: ["Audiovisual language", "AI", "Technical correction", "Workflows"],
         videoCaption:
           "Pieces where storytelling, visual direction, post-production and generative exploration come together.",
+        videoTitle: "Sample of the audiovisual work",
         closingA: "It is not only about using AI.",
         closingB: " It is about knowing how to tell, direct, correct and finish a piece well.",
       };
@@ -79,8 +81,7 @@ const copy =
   <div class="container mx-auto px-6">
     <div class="max-w-5xl mx-auto text-center mb-16">
       <h2
-        class="text-4xl sm:text-6xl md:text-7xl text-[#f6ad1e] leading-none"
-        style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
+        class="text-4xl sm:text-6xl md:text-7xl text-[#f6ad1e] leading-none font-display"
       >
         {copy.title}
       </h2>
@@ -94,8 +95,7 @@ const copy =
       <article class="why-card rounded-2xl overflow-hidden">
         <div class="p-8 flex flex-col gap-4">
           <h3
-            class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight"
-            style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
+            class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight font-display"
           >
             {copy.col1Title}
           </h3>
@@ -114,8 +114,7 @@ const copy =
       <article class="why-card rounded-2xl overflow-hidden">
         <div class="p-8 flex flex-col gap-6">
           <h3
-            class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight"
-            style="font-family: 'Libre Baskerville', 'Baskerville', serif; font-weight: 700;"
+            class="text-3xl sm:text-4xl text-[#f6ad1e] leading-tight font-display"
           >
             {copy.col2Title}
           </h3>
@@ -141,10 +140,14 @@ const copy =
       <article class="why-card rounded-2xl overflow-hidden">
         <div class="p-4">
           <div class="grid grid-cols-1 gap-4">
-            {vimeoVideos.map((videoId) => (
+            {vimeoVideos.map((videoId, index) => (
               <div class="relative overflow-hidden rounded-xl bg-black h-[220px]">
                 <iframe
-                  src={`https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0`}
+                  data-src={`https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&dnt=1`}
+                  src="about:blank"
+                  title={`${copy.videoTitle} ${index + 1}`}
+                  aria-hidden="true"
+                  tabindex="-1"
                   class="absolute top-1/2 left-1/2 w-[160%] h-[160%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                   frameborder="0"
                   allow="autoplay; fullscreen; picture-in-picture"

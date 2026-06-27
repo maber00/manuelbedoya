@@ -97,5 +97,37 @@ const hreflangEs = new URL('/es/', Astro.site || siteFallback).toString();
   <body>
     <Navbar lang={lang} />
     <slot />
+
+    <script>
+      // Lazy-load de iframes con data-src (p. ej. el video de fondo decorativo).
+      // Se arranca tras el evento `load` para que el iframe de terceros no
+      // compita por ancho de banda con los recursos del LCP.
+      const initLazyIframes = () => {
+        const lazyIframes = document.querySelectorAll('iframe[data-src]');
+        const load = (iframe: HTMLIFrameElement) => {
+          const src = iframe.getAttribute('data-src');
+          if (src && iframe.src !== src) iframe.src = src;
+        };
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                load(entry.target as HTMLIFrameElement);
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { rootMargin: '200px' });
+          lazyIframes.forEach(iframe => observer.observe(iframe));
+        } else {
+          lazyIframes.forEach(iframe => load(iframe as HTMLIFrameElement));
+        }
+      };
+
+      if (document.readyState === 'complete') {
+        initLazyIframes();
+      } else {
+        window.addEventListener('load', initLazyIframes, { once: true });
+      }
+    </script>
   </body>
 </html>
