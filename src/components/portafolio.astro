@@ -127,7 +127,7 @@ const projects = [
   id: 8,
   thumbnail: habi,
   title: "Habi",
-  category: "commercials",
+  category: ["commercials", "ai-explorations" ],
   categoryLabel: lang === 'es' ? "Comercial IA" : "AI Commercial",
   videoUrl: "https://youtu.be/dG3cfShPs20",
   description: lang === 'es'
@@ -138,7 +138,7 @@ const projects = [
   id: 9,
   thumbnail: habishort,
 title: lang === 'es' ? "Habi – Reel Vertical 9:16" : "Habi – Vertical Reel 9:16",
-  category: "commercials",
+  category: ["commercials", "ai-explorations" ],
 categoryLabel: lang === 'es' ? "Comercial IA · Instagram / TikTok" : "AI Commercial · Instagram / TikTok",
   videoUrl: "https://www.youtube.com/shorts/4KAltSwgi74",
   description: lang === 'es'
@@ -149,7 +149,7 @@ categoryLabel: lang === 'es' ? "Comercial IA · Instagram / TikTok" : "AI Commer
   id: 10,
   thumbnail: reinaDelNorte,
   title: "La Reina del Norte",
-  category: "series",
+  category: ["series", "ai-explorations"],
   categoryLabel: lang === 'es' ? "Serie de microdrama animado · Mecato" : "Animated microdrama series · Mecato",
   videoUrl: "https://www.youtube.com/shorts/lbtGsMPYxzk",
   description: lang === 'es'
@@ -160,7 +160,7 @@ categoryLabel: lang === 'es' ? "Comercial IA · Instagram / TikTok" : "AI Commer
   id: 11,
   thumbnail: justiciaEnElReino,
   title: "Justicia en el Reino",
-  category: "series",
+  category: ["series", "ai-explorations"],
   categoryLabel: lang === 'es' ? "Serie de microdrama animado · Mecato" : "Animated microdrama series · Mecato",
   videoUrl: "https://www.youtube.com/shorts/tzYv18wQVO0",
   description: lang === 'es'
@@ -215,7 +215,7 @@ categoryLabel: lang === 'es' ? "Comercial IA · Instagram / TikTok" : "AI Commer
           role="button"
           tabindex="0"
           aria-label={project.title}
-          data-category={project.category}
+          data-category={Array.isArray(project.category) ? project.category.join(' ') : project.category}
           data-title={project.title}
           data-video-url={project.videoUrl}
           data-category-label={project.categoryLabel}
@@ -531,8 +531,8 @@ categoryLabel: lang === 'es' ? "Comercial IA · Instagram / TikTok" : "AI Commer
         button.classList.add('active');
         button.setAttribute('aria-pressed', 'true');
         projectItems.forEach(item => {
-          const category = item.getAttribute('data-category') || '';
-          const shouldShow = filterValue === 'all' || category === filterValue;
+          const cats = (item.getAttribute('data-category') || '').split(' ');
+          const shouldShow = filterValue === 'all' || cats.includes(filterValue);
           item.classList.toggle('hidden', !shouldShow);
         });
       });
